@@ -1,1 +1,76 @@
+%You should present initial experimental results and establish a validation strategy to be performed at the end of experimentation. At the very minimum, you should show that you have setup your data, baseline model code and evaluation metric, and run experiments to obtain some results.
+%This stage should help you make progress on your thesis, practice your technical writing skills, and receive feedback on both.
+
+%- Proposed method: details your approaches to the problem (e.g. architecture of the model and any other key methods or algorithms). You should be specific and detailed in describing your main approaches, you may want to include equations and figures. You should also describe your baseline(s). You should clearly state whether your approaches are original or provide necessary references.
+
+%- Experiments: describe the dataset(s) used (provide references); discuss the evaluation metric(s) you used and any other details needed to understand your evaluation strategy; discuss how you ran the experiments, providing necessary technical details; and comment on your qualitative results.
+
+%- Future work: describe what you plan to do for the rest of the project and why.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Proposed Method}
+\subsection{General Approach}
+This study employs an exploratory quantitative research design (\cite{Olston2010, Jaeger1998}). In order to answer the research question on the evolution and spread of agile governance methods and principles in German and British public administrations, the websites of German and British ministries on the federal and state level are being crawled and analysed with respect to the appearance of the term "agil*" (following the keyword search strategy of \cite{Mergel2018}). Thereby gathered insights thus are meant to serve as a proxy for the relevance of agile governance methods in the respective institutions (\cite{Branco2006, Ghosh2013}). The following three sub-sections describe the methods applied for data collection, cleaning, and analysis – all of which have been programmed and deployed in the programming language python (\cite{VanRossum1995}).
+%
+\subsection{Data Collection}
+As the first step of data collection, a list of official websites of federal and state ministries in the UK and Germany has been gathered manually by consulting the respective web presence listings from official government websites (see Table 3 in \hyperref[Appendix A]{Appendix A}). These websites then have been crawled with the help of the open-source web-crawling platform Scrapy (\cite{Kouzis-Loukas2016}), specifying the main urls of the state / federal ministry (e.g. "https://www.gov.uk") as the start url. The crawl has been limited to stay within the range of the respective domain and its sub domains (e.g. "gov.uk"). Furthermore, the crawler was set to ignore the robots.txt file (\cite{Sun2007}). For efficiency and building on the assumption that institutions would not hide information they deemed important in hard to reach locations of their websites, links with greater depth than ten pages have been ignored (\cite{Scrapy2018}). The crawls were run on a 2018 MacBook Pro with a 2.9 GHz Intel Core i9 Processor and 32 GB of Ram. At times up to six crawls were run in parallel. All log files were saved on disk for error tracking.\par
+The general data flow in Scrapy is as follows (see \hyperref[fig:Scrapy Architecture]{Figure 3}; adapted from Architecture overview in \cite{Scrapy2018}):
+\begin{enumerate}
+    \setlength\itemsep{0.001em}
+        \item The Engine gets the initial Requests to crawl from the Spider.
+        \item The Engine schedules the Requests in the Scheduler and asks for the next Requests to crawl.
+        \item The Scheduler returns the next Requests to the Engine.
+        \item The Engine sends the Requests to the Downloader, passing through the Downloader Middlewares.
+        \item Once the page finishes downloading the Downloader generates a Response (with that page) and sends it to the Engine, passing through the Downloader Middlewares.
+        \item The Engine receives the Response from the Downloader and sends it to the Spider for processing, passing through the Spider Middleware.
+        \item The Spider processes the Response and returns scraped items and new Requests (to follow) to the Engine, passing through the Spider Middleware.
+        \item The Engine sends processed items to Item Pipelines, then send processed Requests to the Scheduler and asks for possible next Requests to crawl.
+        \item The process repeats (from step 1) until there are no more requests from the Scheduler.
+\end{enumerate}\par 
+%
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[height=0.4\textwidth]{{"Latex/THESIS/Figures/scrapy_architecture"}.png}
+	\caption[Scrapy Architecture]{Scrapy Architecture (Source: \cite{Scrapy2018})}
+	\label{fig:Scrapy Architecture}
+\end{figure}
+
+\noindent
+In order to search for the respective keyword on a crawled page and retrieve and store the respective information, the Spider has been setup as follows:
+%
+\begin{enumerate}
+    \setlength\itemsep{0.001em}
+        \item The html file is parsed into a "soup" object by the Beautiful soup package (\cite{Richardson2007}).
+        \item The text of the html file is extracted.
+        \item Based on the \textit{CONDITION if the search term agil*} (in Regex: '\textbackslash bagil.?') \textit{is present or not} the following steps are performed:
+        \begin{enumerate}
+            \item IF the search term \textit{is present}:
+            \begin{enumerate}
+                \item A random ID is created for the page, based on its URL and stored as an item for later processing in the Pipeline.
+                \item The page's URL and domain are stored as an item for later processing in the Pipeline.
+                \item Four different (potential) publishing date formats, as well as the document's main heading are extracted with the help of XPath expressions and stored as items for later processing in the Pipeline (\cite{W3schools.com2020}).
+                \item The html file is stored in a newly created directory (domain name) under the newly created ID.
+                \item The path name is reported as "saved file" in the log file. 
+            \end{enumerate}
+            \item IF the search term \textit{is NOT present}:
+            \begin{enumerate}
+                \item The page is being skipped (reported as "skipping" in the log file).
+            \end{enumerate}
+        \end{enumerate}
+        \item The process repeats from step 1. 
+\end{enumerate}\par
+\noindent
+To not get stuck with trying to decipher non-html files, all other common file extensions (e.g. "flv", "css", "pdf") have been denied for extraction. After the html files have been parsed and analysed in the Spider, the items are written into a CSV file and stored for further processing. 
+%
+\subsection{Data Cleaning}
+
+\subsection{Data Analysis}
+
+
+
+

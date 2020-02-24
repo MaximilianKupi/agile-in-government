@@ -16,7 +16,7 @@
 % Font Type Latin Modern
 \usepackage{lmodern}
 
-% define line line spacing = 1.5
+% define line spacing = 1.5
 \renewcommand{\baselinestretch}{1.5}
 
 
@@ -71,8 +71,17 @@
 \fancyhead[R]{Master's Thesis}
 
 
-% define second level for `itemizing'
-%\renewcommand{\labelitemii}{-}
+%define second level for `itemizing'
+\renewcommand{\labelitemii}{-}
+
+\usepackage{enumitem}
+\setenumerate[2]{label=\alph*.}
+\setenumerate[3]{label=–}
+
+
+%to make tables break onto next page
+\usepackage{longtable}
+
 
 %----------------------------------------------------------------------
 %----------------------------------------------------------------------
@@ -152,11 +161,18 @@
 \newpage
 \input{Latex/THESIS/03_Related_Work.tex}
 
+% --------------------
+% - Proposed Methods -
+% --------------------
+\newpage
+\input{Latex/THESIS/04_Proposed_Method.tex}
+
+
 % -------------------
 % --- Experiments ---
 % -------------------
-%\newpage
-%\input{Latex/THESIS/05_Experiments.tex}
+\newpage
+\input{Latex/THESIS/05_Experiments.tex}
 
 
 % ----------------
@@ -208,6 +224,7 @@
 % ----------------
 \appendix
 \newpage
+\input{Latex/THESIS/09_Appendix.tex}
 %\pagenumbering{alph}
 
 
