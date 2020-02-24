@@ -12,9 +12,9 @@ import platform
 # Path- and filenames for storing the downloaded HTML Files
 
 if platform.platform() == 'Darwin-18.7.0-x86_64-i386-64bit':
-    general_file_name = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/CSVs/agile_sites_output_Germany_{}.csv'
+    general_file_name = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/CSVs/Germany/agile_sites_output_Germany_{}.csv'
 else:
-    general_file_name = '/agile-in-government/Analysis/1_Data_Collection/DATA/CSVs/agile_sites_output_Germany_{}.csv'
+    general_file_name = '/agile-in-government/Analysis/1_Data_Collection/DATA/CSVs/Germany/agile_sites_output_Germany_{}.csv'
 
 
 
