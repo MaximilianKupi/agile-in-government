@@ -19,8 +19,8 @@ if platform.platform() == 'Darwin-18.7.0-x86_64-i386-64bit':
     general_folder_path = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}'
     general_file_name = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}/{}.html'
 else:
-    general_folder_path = '/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}'
-    general_file_name = '/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}/{}.html'
+    general_folder_path = 'agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}'
+    general_file_name = 'agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}/{}.html'
 
 
 # STATE LEVEL ################################
