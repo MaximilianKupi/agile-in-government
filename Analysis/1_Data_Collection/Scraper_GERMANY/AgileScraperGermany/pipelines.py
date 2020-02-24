@@ -22,7 +22,7 @@ else:
 class AgileScraperGermanyPipeline(object):
     
     def open_spider(self, spider):
-        self.file = open(general_file_name.format(spider.name), 'a')
+        self.file = open(general_file_name.format(spider.name), 'a+')
         self.csv_writer = csv.writer(self.file)
 
     def close_spider(self, spider):
