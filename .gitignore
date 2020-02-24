@@ -2,3 +2,4 @@
 **/LOGS
 **/CRAWLS
 *.log
+*.DS_Store
