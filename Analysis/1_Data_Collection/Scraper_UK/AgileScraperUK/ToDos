@@ -1,0 +1,50 @@
+
+Data Processing
+
+    only main text of the webpage
+
+
+General: Parallel processing?
+
+loop for all the domains i put in 
+
+depth 
+
+
+AWS?
+
+
+
+REGEX to only scrape german breg-de /DE/ /de/
+
+EXLUDE nationalarchives.gov.uk for the next scrape?
+
+
+
+Include a new xpath to get the dates:
+Für die seite https://www.bmwi.de/Redaktion/FR/Pressemitteilungen/2019/20190311-peter-altmaier-linitiative-pour-le-transfert-pour-que-davantage-didees-deviennent-des-succes.html
+
+Gäbe es auch hier dates:
+/html/body/main/div[@class="container main-head"]/div/p/span[@class="date"]
+
+→ allgemeiner wäre das folgendermaßen: //span[@class="date"]
+
+
+USE: scrapy crawl somespider -s JOBDIR=crawls/somespider-1
+to be able to pause and resume crawler
+
+cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="crawls/$1" >& "logs/$1.log"' -- {}
+
+
+TODO: 
+
+Bavaria didn't work ?!? -- DONE
+ 
+- Hamburg made troubles: builtins.OSError: [Errno 22] Invalid argument DONE
+
+
+
+writing 
+    doctext into textfile and storing location into csv
+    date --> few more cases from nationalarchives.gov.uk
+    agil_context into separate files
