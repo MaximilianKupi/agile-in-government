@@ -33,7 +33,13 @@ Gäbe es auch hier dates:
 USE: scrapy crawl somespider -s JOBDIR=crawls/somespider-1
 to be able to pause and resume crawler
 
-cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="crawls/$1" >& "logs/$1.log"' -- {}
+
+on my machine
+cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" >& "LOGS/$1-$2.log"' -- {} $(date +%s)
+
+on google platform
+cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" > "LOGS/$1-$2.log"' 2>&1 -- {} $(date +%s)
+
 
 
 TODO: 
