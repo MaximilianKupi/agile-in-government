@@ -7,11 +7,18 @@
 import csv
 import json
 import logging
+import platform
+
+if platform.platform() == 'Darwin-18.7.0-x86_64-i386-64bit':
+    general_file_name = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/CSVs/UK/agile_sites_output_UK_{}.csv'
+else:
+    general_file_name = '/home/jupyter/agile-in-government/Analysis/1_Data_Collection/DATA/CSVs/UK/agile_sites_output_UK_{}.csv'
+
 
 class AgilescraperPipeline(object):
     
     def open_spider(self, spider):
-        self.file = open('agile_sites_output.csv', 'a')
+        self.file = open(general_file_name.format(spider.name), 'a')
         self.csv_writer = csv.writer(self.file)
 
     def close_spider(self, spider):

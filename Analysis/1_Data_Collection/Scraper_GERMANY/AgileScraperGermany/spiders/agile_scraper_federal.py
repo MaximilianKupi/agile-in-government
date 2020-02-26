@@ -16,17 +16,16 @@ agile_regex = re.compile(r'\bagil.?', re.IGNORECASE)
 # Path- and filenames for storing the downloaded HTML Files
 
 if platform.platform() == 'Darwin-18.7.0-x86_64-i386-64bit':
-    general_folder_path = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}'
-    general_file_name = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}/{}.html'
+    general_folder_path = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}'
+    general_file_name = '/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}.html'
 else:
-    general_folder_path = '/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}'
-    general_file_name = '/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}/{}.html'
-
+    general_folder_path = '/home/jupyter/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}'
+    general_file_name = '/home/jupyter/agile-in-government/Analysis/1_Data_Collection/DATA/HTMLs/Germany/{}/{}.html'
 
 
 
 class AgileScraperGermany(CrawlSpider):
-    name = 'agile_scraper_germany'
+    name = 'Federal'
     allowed_domains = ["bundesregierung.de", "bundesfinanzministerium.de", "bmi.bund.de", "auswaertiges-amt.de","bmwi.de","bmjv.de","bmas.de","bmvg.de","bmel.de","bmfsfj.de","bundesgesundheitsministerium.de","bmvi.de","bmu.de","bmbf.de","bmz.de"]
     start_urls = ["https://www.bundesregierung.de", "https://www.bundesfinanzministerium.de", "https://www.bmi.bund.de", "https://www.auswaertiges-amt.de","https://www.bmwi.de","https://www.bmjv.de","https://www.bmas.de","https://www.bmvg.de","https://www.bmel.de","https://www.bmfsfj.de","https://www.bundesgesundheitsministerium.de","https://www.bmvi.de","https://www.bmu.de","https://www.bmbf.de","https://www.bmz.de"]
 
