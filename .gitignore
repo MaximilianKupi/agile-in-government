@@ -3,3 +3,4 @@
 **/CRAWLS
 *.log
 *.DS_Store
+**/DATA_GoogleCloud

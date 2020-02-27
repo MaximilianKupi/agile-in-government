@@ -38,8 +38,20 @@ on my machine
 cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" >& "LOGS/$1-$2.log"' -- {} $(date +%s)
 
 on google platform
-cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" > "LOGS/$1-$2.log"' 2>&1 -- {} $(date +%s)
+cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" --logfile "LOGS/$1-$2.log"' -- {} $(date +%Y-%m-%d-%H-%M-%S)
 
+Attaching the session again: 
+
+tmux attach-session -t Crawler
+
+top
+htop
+q
+
+
+SYNCING:
+cd "/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/"
+rsync -a mxm@35.241.150.189:/home/jupyter/agile-in-government/Analysis/1_Data_Collection/DATA/ DATA_GoogleCloud/
 
 
 TODO: 
