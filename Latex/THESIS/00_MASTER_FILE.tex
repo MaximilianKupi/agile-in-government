@@ -9,8 +9,8 @@
 
 % Page Setup
 
-\documentclass[a4paper, 11pt]{article}
-\usepackage[left=1.9cm, right=1.9cm, top=2.2cm, bottom=1.6cm]{geometry} 
+\documentclass[a4paper, 12pt]{article}
+\usepackage[left=1.9cm, right=3cm, top=2.2cm, bottom=1.6cm]{geometry} 
 \usepackage{setspace}
 
 % Font Type Latin Modern
@@ -65,10 +65,19 @@
 %same hight of rows in table
 \renewcommand{\arraystretch}{2}
 
+
+
+%setting the header of the page
 \pagestyle{fancy}
-\fancyhead[L]{Maximilian Kupi}
+%\fancyhf{} % to get rid of the footer (pagenumber) as well 
+\fancyhead[L]{\rightmark}
 \fancyhead[C]{Agile in Government}
 \fancyhead[R]{Master's Thesis}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%\fancyhead[L]{Maximilian Kupi}
+%\fancyhead[C]{Agile in Government}
+%\fancyhead[R]{Master's Thesis}
 
 
 %define second level for `itemizing'
@@ -207,8 +216,8 @@
 % literature
 
 \newpage
-%\pagenumbering{roman}
-%\setcounter{page}{4} 
+\pagenumbering{roman}
+\setcounter{page}{4} 
 
 \titleformat*{\section}{\bfseries\Large\centering}
 \printbibliography[heading=bibintoc] 
