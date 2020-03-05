@@ -2,17 +2,17 @@ REMARKS:
 Schleswig Holstein: Did get way less responses then on my own machine because of 404s. Maybe use these results or rerun at the end.
 
 
-
 STATUS:
 
 RUNNING:
-Berlin-2020-02-27-08-46-07.log   
-Brandenburg-2020-02-27-08-46-07.log  
 North Rhine-Westphalia-2020-02-27-08-46-07.log
 Saxony-2020-02-27-08-46-07.log
-
+Rhineland-Palatinate-2020-02-27-08-46-07.log
+Saarland-2020-02-27-08-46-07.log
 
 DONE:
+Berlin-2020-02-27-08-46-07.log   
+Brandenburg-2020-02-27-08-46-07.log  
 Bremen-2020-02-27-08-46-07.log 
 Lower Saxony-2020-02-27-08-46-07.log         
 Saxony-Anhalt-2020-02-27-08-46-07.log  
