@@ -1,7 +1,7 @@
 REMARKS:
 WORRYSOME:
 
-Schleswig Holstein: Did get way less responses then on my own machine because of 404s. 
+Schleswig Holstein: Did get way less responses then on my own machine because of 404s. --> Maybe use these results or rerun at the end.
 
 Bremen: Second Run got approximately halve the hits (but seems to be a lot of false positives in first run)
 
@@ -15,7 +15,7 @@ Hamburg: Got between 40 and 50 this time and last time above 113 (but this time 
 
 
 
-Maybe use these results or rerun at the end.
+
 
 
 
