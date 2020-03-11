@@ -6,6 +6,17 @@ Schleswig Holstein: Did get way less responses then on my own machine because of
 Bremen: Second Run got approximately halve the hits (but seems to be a lot of false positives in first run)
 
 
+Rhineland-Palatinate-2020-02-27-08-46-07.log got a lot: 
+2020-03-11 08:56:34 [scrapy.core.scraper] ERROR: Error downloading <GET https://gewaltpraevention.rlp.de/de/startseite/?tx_solr%5Bfilter%5D%5B0%5D=preventionActionT
+opic%253AGewaltpr%25C3%25A4vention%2Ballgemein&tx_solr%5Bfilter%5D%5B1%5D=preventionActionType%253AFortbildungen&tx_solr%5Bfilter%5D%5B2%5D=preventionActionType%253
+ABeratungsgremium%2B%252F%2BNetzwerk>  
+Traceback (most recent call last):                                                                                                                                  
+  File "/home/jupyter/.local/lib/python3.5/site-packages/scrapy/core/downloader/middleware.py", line 44, in process_request                                         
+    defer.returnValue((yield download_func(request=request, spider=spider)))                                                                                        
+twisted.internet.error.TCPTimedOutError: TCP connection timed out: 110: Connection timed out.
+
+
+
 FINE:
 Lower Saxony: Didn't get anything in both runs. 
 Saxony-Anhalt: Didn't get anything in first run, now it got about 25
@@ -22,9 +33,9 @@ Hamburg: Got between 40 and 50 this time and last time above 113 (but this time 
 STATUS:
 
 RUNNING:
+Rhineland-Palatinate-2020-02-27-08-46-07.log got a lot: 
 North Rhine-Westphalia-2020-02-27-08-46-07.log
 Saxony-2020-02-27-08-46-07.log
-Rhineland-Palatinate-2020-02-27-08-46-07.log
 Saarland-2020-02-27-08-46-07.log
 
 DONE:
