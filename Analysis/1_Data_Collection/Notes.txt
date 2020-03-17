@@ -1,5 +1,5 @@
 TO CHECK:
-
+Bavaria-2020-02-27-08-46-07.log 
 
 
 
@@ -34,12 +34,15 @@ Hamburg: Got between 40 and 50 this time and last time above 113 (but this time 
 STATUS:
 
 RUNNING:
-Bavaria-2020-02-27-08-46-07.log 
+
 North Rhine-Westphalia-2020-02-27-08-46-07.log
 Saxony-2020-02-27-08-46-07.log
 Saarland-2020-02-27-08-46-07.log
+Baden-Wuerttemberg-2020-02-27-08-46-07.log
 
 DONE:
+Bavaria-2020-02-27-08-46-07.log 
+
 Hesse-2020-02-27-08-46-07.log  
 Rhineland-Palatinate-2020-02-27-08-46-07.log
 Berlin-2020-02-27-08-46-07.log   
