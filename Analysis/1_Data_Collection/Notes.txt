@@ -1,5 +1,4 @@
 TO CHECK:
-Bavaria-2020-02-27-08-46-07.log 
 
 
 
@@ -17,6 +16,7 @@ Hesse-2020-02-27-08-46-07.log got 38 hits instead of 76 last time but this time 
 
 
 FINE:
+Bavaria-2020-02-27-08-46-07.log got about 250 this time and only about 70 last time
 Rhineland-Palatinate-2020-02-27-08-46-07.log got 168 and last time only 39
 Lower Saxony: Didn't get anything in both runs. 
 Saxony-Anhalt: Didn't get anything in first run, now it got about 25
