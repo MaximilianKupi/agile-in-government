@@ -16,6 +16,7 @@ Hesse-2020-02-27-08-46-07.log got 38 hits instead of 76 last time but this time 
 
 
 FINE:
+Baden-Wuerttemberg-2020-02-27-08-46-07.log got around 135 and last time only around 75
 Bavaria-2020-02-27-08-46-07.log got about 250 this time and only about 70 last time
 Rhineland-Palatinate-2020-02-27-08-46-07.log got 168 and last time only 39
 Lower Saxony: Didn't get anything in both runs. 
@@ -38,7 +39,7 @@ RUNNING:
 North Rhine-Westphalia-2020-02-27-08-46-07.log
 Saxony-2020-02-27-08-46-07.log
 Saarland-2020-02-27-08-46-07.log
-Baden-Wuerttemberg-2020-02-27-08-46-07.log
+
 
 DONE:
 Bavaria-2020-02-27-08-46-07.log 
