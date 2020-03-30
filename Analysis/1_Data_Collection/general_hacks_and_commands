@@ -1,6 +1,20 @@
 
 
 
+Check disk space:
+
+df -h
+
+
+
+Truncating the last 10000 lines:
+First install moreutils: 
+sudo apt-get install moreutils
+Then do in the respective folder
+tail -n 10000 filename.log | sponge filename.log
+
+tail -n 10000 Thuringia-2020-02-27-08-46-07.log | sponge Thuringia-2020-02-27-08-46-07.log
+
 
 
 USE: scrapy crawl somespider -s JOBDIR=crawls/somespider-1
@@ -11,7 +25,9 @@ on my machine
 cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" >& "LOGS/$1-$2.log"' -- {} $(date +%s)
 
 on google platform
-cat states.txt | xargs -P 4 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" --logfile "LOGS/$1-$2.log"' -- {} $(date +%Y-%m-%d-%H-%M-%S)
+cat states.txt | xargs -P 2 -I{} sh -c 'echo "Running $1"; scrapy crawl "$1" -s JOBDIR="CRAWLS/$1" --logfile "LOGS/$1-$2.log"' -- {} $(date +%Y-%m-%d-%H-%M-%S)
+
+
 
 Attaching the session again: 
 
