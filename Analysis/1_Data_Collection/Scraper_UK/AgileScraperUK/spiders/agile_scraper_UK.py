@@ -28,7 +28,7 @@ else:
 agile_regex = re.compile(r'\bagil.?', re.IGNORECASE)
 
 
-class AgileScraper(CrawlSpider):
+class AgileScraperUK(CrawlSpider):
     name = 'General'
     allowed_domains = ['gov.uk']
     start_urls = ['https://www.gov.uk']

@@ -5,12 +5,6 @@ TO CHECK:
 REMARKS:
 WORRYSOME:
 
-Schleswig Holstein: Did get way less responses then on my own machine because of 404s. --> Maybe use these results or rerun at the end.
-
-Bremen: Second Run got approximately halve the hits (but seems to be a lot of false positives in first run)
-
-Hesse-2020-02-27-08-46-07.log got 38 hits instead of 76 last time but this time also from the digital.hessen.de so probably better?
-
 
 
 
@@ -26,7 +20,10 @@ Thuringia got 2 items more this time
 Hamburg: Got between 40 and 50 this time and last time above 113 (but this time it was limited)
 
 
-
+ARCHIVED REMARKS because re-running:
+Schleswig Holstein: Did get way less responses then on my own machine because of 404s. --> Maybe use these results or rerun at the end.
+Bremen: Second Run got approximately halve the hits (but seems to be a lot of false positives in first run)
+Hesse-2020-02-27-08-46-07.log got 38 hits instead of 76 last time but this time also from the digital.hessen.de so probably better?
 
 
 
@@ -35,7 +32,9 @@ Hamburg: Got between 40 and 50 this time and last time above 113 (but this time 
 STATUS:
 
 RUNNING:
-
+Bremen-2020-03-30-11-13-40.log
+Schleswig-Holstein-2020-03-30-11-13-40.log
+General-2020-03-30-11-30-11.log (UK)
 North Rhine-Westphalia-2020-02-27-08-46-07.log
 Saxony-2020-02-27-08-46-07.log
 Saarland-2020-02-27-08-46-07.log

@@ -9,17 +9,18 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'AgileScraper'
+BOT_NAME = 'AgileScraperUK'
 
-SPIDER_MODULES = ['AgileScraper.spiders']
-NEWSPIDER_MODULE = 'AgileScraper.spiders'
+SPIDER_MODULES = ['AgileScraperUK.spiders']
+NEWSPIDER_MODULE = 'AgileScraperUK.spiders'
 
-DUPEFILTER_DEBUG = True
+DUPEFILTER_DEBUG = False
 
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'AgileScraper (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36'
+
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -71,7 +72,7 @@ DEPTH_LIMIT = 10
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'AgileScraper.pipelines.AgilescraperPipeline': 300,
+   'AgileScraperUK.pipelines.AgilescraperPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
