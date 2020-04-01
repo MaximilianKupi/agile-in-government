@@ -13,7 +13,7 @@ sudo apt-get install moreutils
 Then do in the respective folder
 tail -n 10000 filename.log | sponge filename.log
 
-tail -n 10000 Thuringia-2020-02-27-08-46-07.log | sponge Thuringia-2020-02-27-08-46-07.log
+tail -n 10000 Schleswig-Holstein-2020-03-30-11-13-40.log | sponge Schleswig-Holstein-2020-03-30-11-13-40.log
 
 
 
