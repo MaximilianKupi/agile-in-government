@@ -3,26 +3,29 @@ Credit: 122 € on 30/03/20
 TO CHECK:
 
 
-
 REMARKS:
 WORRYSOME:
 
-Schleswig-Holstein-2020-03-30-11-13-40.log still got 3 hits less than on my own machine (might be ok though)
+Schleswig-Holstein-2020-03-30-11-13-40.log got 31 and last time (34 | 4) --> maybe use old one from external HardDrive?
 
 
 
 FINE:
-Bremen-2020-03-30-11-13-40.log got around 1400 and last time only around 660
-Saarland-2020-02-27-08-46-07.log got 53000 items and last time around 4000 (?)
-Hesse-2020-03-30-11-13-40.log got 82 and last time only 76
-Baden-Wuerttemberg-2020-02-27-08-46-07.log got around 135 and last time only around 75
-Bavaria-2020-02-27-08-46-07.log got about 250 this time and only about 70 last time
-Rhineland-Palatinate-2020-02-27-08-46-07.log got 168 and last time only 39
+Berlin-2020-02-27-08-46-07.log got 70551 and last time only (81)
+Saxony-2020-02-27-08-46-07.log about 33000 and last time only around (first: 1435 | second: 9950)
+North Rhine-Westphalia-2020-02-27-08-46-07.log about 120 and last time only around (0 | 38)
+Bremen-2020-03-30-11-13-40.log got around 1400 and last time only around (660 | 322)
+Saarland-2020-02-27-08-46-07.log got 60000 items and last time around (4000 | 31000)
+Hesse-2020-03-30-11-13-40.log got 98 and last time only (84|52)
+Baden-Wuerttemberg-2020-02-27-08-46-07.log got 143 and last time only around (83 | 126)
+Bavaria-2020-02-27-08-46-07.log got 258 this time and only about 50 | 258
+Rhineland-Palatinate-2020-02-27-08-46-07.log got 174 and last time only (39 | 174)
 Lower Saxony: Didn't get anything in both runs. 
-Saxony-Anhalt: Didn't get anything in first run, now it got about 25
-Mecklenburg Vorpommern: Got 4 both runs
-Thuringia got 2 items more this time
-Hamburg: Got between 40 and 50 this time and last time above 113 (but this time it was limited)
+Saxony-Anhalt got 28 and nothing before
+Mecklenburg Vorpommern: Got 6 in all runs
+Thuringia got 20 and 18 last time
+Hamburg: Got between 48 this time and last time above 113 (but this time it was limited)
+
 
 
 ARCHIVED REMARKS because re-running:
@@ -37,24 +40,24 @@ Hesse-2020-02-27-08-46-07.log got 38 hits instead of 76 last time but this time 
 STATUS:
 
 RUNNING:
-Bremen-2020-03-30-11-13-40.log
 General-2020-03-30-11-30-11.log (UK)
-North Rhine-Westphalia-2020-02-27-08-46-07.log
-Saxony-2020-02-27-08-46-07.log
-Saarland-2020-02-27-08-46-07.log
+Federal-2020-03-30-11-13-40.log
+
 
 
 DONE:
+Berlin-2020-02-27-08-46-07.log 
+Saxony-2020-02-27-08-46-07.log 
+North Rhine-Westphalia-2020-02-27-08-46-07.log 
+Bremen-2020-03-30-11-13-40.log 
+Saarland-2020-02-27-08-46-07.log 
+Hesse-2020-03-30-11-13-40.log 
+Baden-Wuerttemberg-2020-02-27-08-46-07.log 
 Bavaria-2020-02-27-08-46-07.log 
-
-Hesse-2020-02-27-08-46-07.log  
-Rhineland-Palatinate-2020-02-27-08-46-07.log
-Berlin-2020-02-27-08-46-07.log   
-Brandenburg-2020-02-27-08-46-07.log  
-Bremen-2020-02-27-08-46-07.log 
-Lower Saxony-2020-02-27-08-46-07.log         
+Rhineland-Palatinate-2020-02-27-08-46-07.log        
 Saxony-Anhalt-2020-02-27-08-46-07.log  
 Mecklenburg-Vorpommern-2020-02-27-08-46-07.log  
 Schleswig-Holstein-2020-02-27-08-46-07.log 
 Thuringia-2020-02-27-08-46-07.log
-Hamburg-2020-02-27-08-46-07.log      
+Hamburg-2020-02-27-08-46-07.log 
+Lower Saxony-2020-02-27-08-46-07.log    
