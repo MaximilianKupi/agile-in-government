@@ -6,6 +6,8 @@ TO CHECK:
 REMARKS:
 WORRYSOME:
 
+General-2020-03-30-11-30-11.log (UK) got totally different results than last time and many, which seem irrelevant (maybe join both runs?)
+
 Schleswig-Holstein-2020-03-30-11-13-40.log got 31 and last time (34 | 4) --> maybe use old one from external HardDrive?
 
 
@@ -20,7 +22,7 @@ Hesse-2020-03-30-11-13-40.log got 98 and last time only (84|52)
 Baden-Wuerttemberg-2020-02-27-08-46-07.log got 143 and last time only around (83 | 126)
 Bavaria-2020-02-27-08-46-07.log got 258 this time and only about 50 | 258
 Rhineland-Palatinate-2020-02-27-08-46-07.log got 174 and last time only (39 | 174)
-Lower Saxony: Didn't get anything in both runs. 
+Lower Saxony: Didn't get anything in both runs. --> everything is just in PDFs (these are of consultancies though)
 Saxony-Anhalt got 28 and nothing before
 Mecklenburg Vorpommern: Got 6 in all runs
 Thuringia got 20 and 18 last time
@@ -40,12 +42,13 @@ Hesse-2020-02-27-08-46-07.log got 38 hits instead of 76 last time but this time 
 STATUS:
 
 RUNNING:
-General-2020-03-30-11-30-11.log (UK)
+
 Federal-2020-03-30-11-13-40.log
 
 
 
 DONE:
+General-2020-03-30-11-30-11.log (UK)
 Berlin-2020-02-27-08-46-07.log 
 Saxony-2020-02-27-08-46-07.log 
 North Rhine-Westphalia-2020-02-27-08-46-07.log 
