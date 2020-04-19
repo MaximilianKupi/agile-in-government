@@ -13,7 +13,7 @@ sudo apt-get install moreutils
 Then do in the respective folder
 tail -n 10000 filename.log | sponge filename.log
 
-tail -n 10000 North\ Rhine-Westphalia-2020-02-27-08-46-07.log | sponge North\ Rhine-Westphalia-2020-02-27-08-46-07.log
+tail -n 10000 General-2020-04-14-20-34-11.log | sponge General-2020-04-14-20-34-11.log
 
 
 USE: scrapy crawl somespider -s JOBDIR=crawls/somespider-1
@@ -44,9 +44,6 @@ rsync -a mxm@35.241.150.189:/home/jupyter/agile-in-government/Analysis/1_Data_Co
 
 TODO: 
 
-Bavaria didn't work ?!? -- DONE
- 
-- Hamburg made troubles: builtins.OSError: [Errno 22] Invalid argument DONE
 
 
 

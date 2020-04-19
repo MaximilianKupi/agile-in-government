@@ -2,13 +2,14 @@ Credit: 122 € on 30/03/20
 
 TO CHECK:
 
-
 REMARKS:
 WORRYSOME:
 
 General-2020-03-30-11-30-11.log (UK) got totally different results than last time and many, which seem irrelevant (maybe join both runs?)
 
 Schleswig-Holstein-2020-03-30-11-13-40.log got 31 and last time (34 | 4) --> maybe use old one from external HardDrive?
+
+Federal-2020-03-30-11-13-40.log got 101 and last time 99 but different hits (I will join both runs)
 
 
 
