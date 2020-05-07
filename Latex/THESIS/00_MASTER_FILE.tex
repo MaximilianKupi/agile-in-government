@@ -43,6 +43,7 @@
 
 \usepackage[section]{placeins}
 
+
 %to force line breaks of URLS in Footnotes
 \def\UrlBreaks{\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\%\do\;\do\>\do\]
 	\do\)\do\,\do\?\do\'\do\+\do\=\do\#\do\-} 
@@ -79,7 +80,7 @@
 %setting the header of the page
 \pagestyle{fancy}
 %\fancyhf{} % to get rid of the footer (pagenumber) as well 
-\fancyhead[L]{\rightmark}
+\fancyhead[L]{\leftmark}
 \fancyhead[C]{Agile in Government}
 \fancyhead[R]{Master's Thesis}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -233,10 +234,8 @@
 \newpage
 \pagenumbering{roman}
 \setcounter{page}{4} 
-
 \titleformat*{\section}{\bfseries\Large\centering}
 \printbibliography[heading=bibintoc] 
-
 
 %----------------------------------------------------------------------
 %----------------------------------------------------------------------
@@ -244,12 +243,14 @@
 
 
 % ----------------
-% --- Appendix ---
+% -- Appendices --
 % ----------------
 \newpage
 \appendix
 \newpage
-\input{Latex/THESIS/10_Appendix.tex}
+\input{Latex/THESIS/10_AppendixA.tex}
+\newpage
+\input{Latex/THESIS/11_AppendixB.tex}
 %\pagenumbering{alph}
 
 
