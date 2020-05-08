@@ -42,4 +42,9 @@
 \end{figure}
 %
 
+\begin{tabular}{r|l}%
+    Term &  Frequency % specify table head
+    \csvreader[head to column names]{"Analysis/3_Data_Analysis/visualisations/word_frequencies_uk_ministries“}.csv{}% use head of csv as column names
+    {\\\term & \count}% specify your coloumns here
+\end{tabular}
 \newpage
