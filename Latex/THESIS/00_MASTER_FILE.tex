@@ -77,7 +77,9 @@
 % reading csv files as tables
 \usepackage{csvsimple}
 
-
+% making table in two columns
+\usepackage{supertabular}
+\usepackage{tabularx}
 
 %setting the header of the page
 \pagestyle{fancy}
@@ -251,7 +253,7 @@
 \appendix
 \renewcommand{\leftmark}{APPENDIX A}
 \input{Latex/THESIS/10_AppendixA.tex}
-
+\newpage
 \FloatBarrier
 \renewcommand{\leftmark}{APPENDIX B}
 \input{Latex/THESIS/11_AppendixB.tex}

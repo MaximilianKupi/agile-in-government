@@ -32,7 +32,6 @@
 	 \label{fig:British agile depth organisation}
 \end{figure}
 %
-
 %
 \begin{figure}[ht]
 	\centering
@@ -41,10 +40,60 @@
 	 \label{fig:Breadth and depth of agil* websites published by British and German ministries (with ministry names)}
 \end{figure}
 %
+\FloatBarrier
 
-\begin{tabular}{r|l}%
-    Term &  Frequency % specify table head
-    \csvreader[head to column names]{"Analysis/3_Data_Analysis/visualisations/word_frequencies_uk_ministries“}.csv{}% use head of csv as column names
-    {\\\term & \count}% specify your coloumns here
-\end{tabular}
-\newpage
+
+\begingroup
+\begin{spacing}{.65}
+\renewcommand
+\arraystretch{1}
+\begin{table}[!htbp]
+\caption{Frequency of co-search terms for British and German ministries}\label{tab:Frequency of co-search terms for British and German ministries}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{rlrl}
+
+\multicolumn{4}{c}{\textbf{United Kingdom}}                                                                   \\
+\textit{Co-Search Term}             & \textit{Freq.} & \textit{Co-Search Term}        & \textit{Freq.} \\ \hline
+user research                       & 32             & backlog                        & 4              \\
+user need                           & 19             & minimum viable product         & 3              \\
+service design                      & 16             & user test                      & 3              \\
+agile delivery                      & 13             & agile project management       & 3              \\
+user - centre                       & 13             & agile manifesto                & 2              \\
+agile team                          & 12             & agile coach                    & 2              \\
+iterative                           & 10             & mvp                            & 2              \\
+iteration                           & 9              & user story                     & 2              \\
+agile method                        & 9              & collaboration space            & 1              \\
+sprint                              & 9              & agile stage                    & 1              \\
+agile project                       & 8              & agile software development     & 1              \\
+agile development                   & 8              & design think                   & 1              \\
+agile way                           & 8              & agile ceremony                 & 1              \\
+software development                & 7              & agile process                  & 1              \\
+product owner                       & 6              & lean startup                   & 1              \\
+agile way of work                   & 6              & sprint plan                    & 1              \\
+agile principle                     & 5              & user requirement               & 1              \\
+agile methodology                   & 4              & whiteboard                     & 1              \\
+development team                    & 4              & agile wall                     & 1              \\
+user - centre design                & 4              & wireframe                      & 1              \\[0.5cm] 
+
+
+
+\multicolumn{4}{c}{\textbf{Germany}}                                                                   \\
+\textit{Co-Search Term}             & \textit{Freq.} & \textit{Co-Search Term}        & \textit{Freq.} \\ \hline
+agil arbeit                         & 10             & agil softwareweiterentwicklung & 1              \\
+innovationskultur                   & 3              & scrum master                   & 1              \\
+agil arbeitsformen                  & 3              & agil innovation                & 1              \\
+agil arbeitend organisationseinheit & 2              & agil methodik                  & 1              \\
+scrum                               & 2              & new work                       & 1              \\
+design thinking                     & 1              & sprint review                  & 1              \\
+innovationsmanagement               & 1              & agil team                      & 1              \\
+daily scrum                         & 1              & agil arbeitsmethoden           & 1              \\
+agil wert                           & 1              & agil prinzip                   & 1              \\
+agil management                     & 1              & agil method                    & 1              \\
+product owner                       & 1              & agil projekt                   & 1              \\
+sprint                              & 1              & backlog                        & 1              \\
+product backlog                     & 1              &                                &               
+\end{tabular}%
+}
+\end{table}
+\end{spacing}
+\endgroup
