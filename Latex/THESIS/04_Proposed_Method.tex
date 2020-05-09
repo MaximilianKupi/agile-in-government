@@ -15,13 +15,12 @@
 
 \section{Proposed Method}
 \subsection{General Approach}
-This study employs an exploratory quantitative research design (\cite{Olston2010, Jaeger1998}). In order to answer the research question on the evolution and spread of agile governance methods and principles in German and British public administrations, the websites of German and British government ministries on the federal and state level were crawled and analysed with respect to the appearance of the term "agil*" (following the keyword search strategy of \cite{Mergel2018}). Thereby gathered insights thus are meant to serve as a proxy for the relevance of agile governance methods in the respective institutions (\cite{Branco2006, Ghosh2013}). The following three sub-sections describe the methods applied for data collection, preprocessing, and analysis – all of which were programmed and deployed in the programming language Python (\cite{VanRossum1995}).
-%
+This study employs an exploratory quantitative research design (\cite{Olston2010, Jaeger1998}). In order to answer the research question on the evolution and spread of agile governance methods and principles in German and British public administrations, the websites of German and British government ministries on the federal and state level were crawled and analysed with respect to the appearance of the term "agil*" (following the keyword search strategy of \cite{Mergel2018}). Thereby gathered insights, in particular the number of agil* sites published as well as the depth in which the topic is being discussed on these sites, are meant to serve as a proxy measure for the relevance of agile governance methods in the respective institutions (\cite{Branco2006, Ghosh2013}). The following three sub-sections describe the methods applied for data collection, preprocessing, and analysis – all of which were programmed and deployed in the programming language Python (\cite{VanRossum1995}). The final prototyping experiments subsection, briefly outlines all the testing and prototyping work that went into developing this pipeline.
+
 \subsection{Data Collection}
-The purpose of the data collection process was to efficiently gather as many potentially relevant websites as possible. The process followed the steps identified for routine web crawls by Schäfer and Bildhauer (\cite*{Schafer2012}).  As the first step of data collection, a list of official websites of federal and state ministries in the UK and Germany was gathered manually by consulting the respective web presence listings from official government websites (see Table~\ref{tab:List of Ministry Websites} in \href{Appendix B}{Appendix B}). These websites then were crawled with the help of the open source web crawling platform Scrapy (\cite{Kouzis-Loukas2016}), specifying the main URLs from which the state / federal ministries can be reached (e.g. "https://www.gov.uk") as the "seed URL" \parencite[p. 115]{Barbaresi2015}. The crawl was limited to stay within the range of the respective domain and its sub domains (e.g. "gov.uk" and "kent.gov.uk"), and only download pages that contained the keyword. For efficiency purposes and building on the assumption that institutions would not hide information they deemed important on deep pages of their websites, links with greater depth than ten pages were ignored (\cite{Scrapy2018, Wang2019}). Furthermore, the crawler was set to ignore the robots.txt file, since for many sites effective web crawling would not have been possible otherwise (\cite{Sun2007}; see also \cite[p. 125]{Barbaresi2015}). The crawls were run on an specifically set up instance on the Google Cloud Platform from servers in Belgium, and closely monitored throughout the whole process.\par
-The general data flow in Scrapy is as follows (see Figure~\ref{fig:Scrapy Architecture}; adapted from "Architecture overview" in \cite{Scrapy2018}):
-\begin{enumerate}
-    \setlength\itemsep{0.000000000001em}
+The purpose of the data collection process was to efficiently gather as many potentially relevant websites as possible. The process followed the steps identified for routine web crawls by Schäfer and Bildhauer (\cite*{Schafer2012}). As the first step of data collection, a list of official websites of federal and state ministries in the UK and Germany was gathered manually by consulting the respective web presence listings from official government websites (see Table~\ref{tab:List of Ministry Websites} in \href{Appendix B}{Appendix B}). These websites then were crawled with the help of the open source web crawling platform \href{https://scrapy.org }{Scrapy} (\cite{Kouzis-Loukas2016}), specifying the main URLs from which the state / federal ministries can be reached (e.g. \url{https://www.gov.uk}, \url{https://www.bayern.de} etc.) as the "seed URL", which the scraper would use as the starting point for the crawl \parencite[p. 115]{Barbaresi2015}. The crawl was limited to stay within the range of the respective domain and all its sub domains (e.g. \url{https://www.gov.uk} and \url{https://gds.blog.gov.uk/} or \url{https://www.bayern.de} and \url{https://km.bayern.de}), and only programmed to download pages that contained the keyword. For efficiency purposes and building on the assumption that institutions would not hide information they deemed important on deep pages of their websites, links with greater depth than ten pages were ignored (\cite{Scrapy2018, Wang2019}). Furthermore, the crawler was set to ignore the robots.txt file, since for many sites effective web crawling would not have been possible otherwise (\cite{Sun2007}; see also \cite[p. 125]{Barbaresi2015}).
+The general data flow in Scrapy is as follows (see Figure~\ref{fig:Scrapy Architecture}; adapted from ”Architecture overview” in \cite{Scrapy2018}):
+\begin{compactenum}
         \item The Engine gets the initial Requests to crawl from the Spider.
         \item The Engine schedules the Requests in the Scheduler and asks for the next Requests to crawl.
         \item The Scheduler returns the next Requests to the Engine.
@@ -31,19 +30,19 @@ The general data flow in Scrapy is as follows (see Figure~\ref{fig:Scrapy Archit
         \item The Spider processes the Response and returns scraped items and new Requests (to follow) to the Engine, passing through the Spider Middleware.
         \item The Engine sends processed items to Item Pipelines, then sends processed Requests to the Scheduler and asks for possible next Requests to crawl.
         \item The process repeats (from step 1) until there are no more requests from the Scheduler.
-\end{enumerate}\par 
+\end{compactenum}\par 
 %
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[height=0.4\textwidth]{{"Latex/THESIS/Figures/scrapy_architecture"}.png}
-	\caption[Scrapy Architecture]{Scrapy Architecture (Source: \cite{Scrapy2018})}
+	\caption[Scrapy Architecture]{Scrapy Architecture (Source: \url{https://docs.scrapy.org}, reprinted with permission)}
 	\label{fig:Scrapy Architecture}
 \end{figure}
 
 \noindent
 In order to search for the respective keyword on a crawled page as well as retrieve and store the relevant web content, the Spider was setup as follows:
 %
-\begin{enumerate}
+\begin{compactenum}
     \setlength
     \itemsep{0em}
         \item The HTML file is parsed into a "soup" object with the help of the \textit{Beautiful Soup} package (\cite{Richardson2007}).
@@ -64,22 +63,20 @@ In order to search for the respective keyword on a crawled page as well as retri
             \end{enumerate}
         \end{enumerate}
         \item The process repeats from step 1. 
-\end{enumerate}\par
+\end{compactenum}par
 \noindent
-To not get stuck with trying to decipher non-HTML files, all other common file extensions (e.g. "flv", "css", "pdf") were denied for extraction. After the HTML files were parsed and analysed in the Spider, the items are passed to the Items Pipeline which writes them into a CSV file which then is stored for further processing.\par
-%
+To not get stuck with trying to decipher non-HTML files, all other common file extensions (e.g. "flv", "css", "pdf") were denied for extraction. After the HTML files were parsed and analysed in the Spider, the items are passed to the Items Pipeline which writes them into a CSV file which then is stored for further processing.
+
+The final crawls were run on a specifically set up instance on the \href{https://cloud.google.com/}{Google Cloud Platform} from servers in Belgium, and closely monitored throughout the whole process via an https connected \href{https://jupyterlab.readthedocs.io/en/stable/}{JupyterLab}. File syncing with the local machine was implemented via \href{https://linux.die.net/man/1/rsync}{rsync}.
+
 \subsection{Data Preprocessing}
 The purpose of the data  preprocessing was to strip the text from unnecessary web-script elements, extract further date timestamps while selecting the earliest one, and finally, delete duplicates and false positives from the data set (e.g. agile related to military) and save everything in machine readable CSV- and text-file formats. These steps are in line with the recommendations of Lüdeling et al. (\cite*[p. 19]{Ludeling2015}) for the preprocessing of downloaded web pages. To perform these tasks, two algorithms were designed and adapted for their language / country specific application. The design of these algorithms, was an iterative process, where based on the gathered results the code was amended until a reliability of results was to be guaranteed.\par 
 \paragraph{First Algorithm:} One task of the first algorithm was to remove all HTML code and other "boilerplate" elements such as headers or links to other web pages (ibid.). This step was performed with the help of the \textit{Beautiful Soup} package (\cite{Richardson2007}), and the so extracted text was stored as a variable as well as in separate text-files. Next, the search for the respective agile term was iterated, this time with more specific regex expressions.\footnote{E.g. the regex expression to catch all English matches was specified to be '\textbackslash bagil\textbackslash b\textbar \textbackslash bagility\textbackslash b'.} Also, the preceding and subsequent context (five words each) of the first appearance of the search term was captured in order to facilitate the later search for false positives. Furthermore, another search for the explicit mentioning of the term "agile [...] method*" was conducted.\par 
 Since there were cases in which the during scarping defined date instances have yielded no results, the other major task of this algorithm was to retrieve further manually identified instances for (potential) date entries from the web pages so that the majority of cases (more than 80\%) would be equipped with at least one date entry. To achieve this, the parser package \textit{lxml}(\cite{Faassen2006}) was used besides Beautiful Soup in order to be able to read XPath (\cite{Clark1999}). Since for most relevant cases the earliest date retrieved matched the date when the content of the website was first published,\footnote{This was tested manually by checking a sample of cases with multiple date entries.} a "final date" variable was created with the earliest date as entry for each case.\footnote{The retrieved final date was also compared with the results generated by the \textit{HTMLdate} package (\cite{Barbaresi2020}), which was particularly designed to find publication dates of web pages. It turned out that the approach of the author of this paper was more robust and yielded more accurate results.} To correctly parse the dates into Python datetime objects, the \textit{dateutil} package (\cite{Niemeyer2003}) was used. Finally, the algorithm stored all the newly generated variables (search term matches, context of first match, date entries, text, and location of the text files) into a CSV file.\par
 \paragraph{Second Algorithm:} The task of the second algorithm was to get rid of all the duplicates and false positives in the data set. For both of these tasks the \textit{pandas} Python package (\cite{McKinney2010}) was used. To erase the false positives two strategies were used. The first strategy was to erase all cases, where the more restrictive regex match on the further cleaned text (see first algorithm above) did not yield any results. The second strategy was to manually look through the context of the remaining matches to identify and remove all cases where the content was about a subject matter not of interest for this study – for example, "agile" military in the UK context or "agile Senioren" (Eng: agile seniors) in the case of German websites. Finally, the duplicate cases where identified based on the heading as well as the context of the first match and thusly erased, so that the version which dates back the longest remained in the data set.\par 
 %
-\vspace{3pt}
-\begin{center}
-    \textbf{Everything above has so far only been deployed for the UK and all now following descriptions in this section are work in progress.}
-\end{center}
+% mention which machine i used for preprocessing
 
-I plan to have a look into the \textit{SpaCy} package (\cite{spacy2}) in order to use named entity recognition and word vectors to make the extraction of false positives potentially more automatable. 
 
 \subsection{Data Analysis}
 In the data analysis part, I want to show the differences in relevant websites published per year across countries and federal states. One way to do so, could be to use a number of bar charts like Figure~\ref{fig:Counts UK} and stack them above and next to each other. Furthermore, once all data has been gathered and preprocessed, I will try to create an \textit{"Agile Methods Intensity Index"}. Potentially, this could be done by not only counting the websites published per year but also going into details, as to whether these websites only mention agile / agility once or whether they provide a thorough description of the method's application. To analyse and visualize the data I plan to use the packages \textit{pandas} (\cite{McKinney2010}, \textit{matplotlib} (\cite{Hunter2007}), and \textit{plotly} (\cite{ PlotlyTechnologiesInc.2015}). Furthermore, I plan to dive into \textit{SpaCy} to see in which sense it might help me with constructing the index.
@@ -94,3 +91,8 @@ In the data analysis part, I want to show the differences in relevant websites p
 
 
 % agile suppliers excluded since it's about the inner workings of the ministries
+\subsection{Prototyping and Experiments}
+% initial crawls on local machine (3 weeks) for tests 
+% multiple crawls had to be rerun, because the crawler yielded errors) 
+% initial negative cleaning (without dictionary) 
+% visualisations
