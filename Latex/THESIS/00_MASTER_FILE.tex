@@ -95,6 +95,14 @@
 \fancyhead[R]{Master's Thesis}
 \renewcommand{\headrulewidth}{0.4pt}
 
+
+
+\fancypagestyle{executivesummary}{%
+\fancyhead[L]{EXECUTIVE SUMMARY}
+\fancyhead[C]{Agile in Government}
+\fancyhead[R]{Master's Thesis}
+\renewcommand{\headrulewidth}{0.4pt}
+}
 %\fancyhead[L]{Maximilian Kupi}
 %\fancyhead[C]{Agile in Government}
 %\fancyhead[R]{Master's Thesis}
@@ -141,11 +149,14 @@
 % --- Abstract ---
 % ----------------
 \newpage
-\input{Latex/THESIS/01_Abstract.tex}
+\thispagestyle{executivesummary}
+{\titleformat*{\section}{\bfseries\Large\centering}\input{Latex/THESIS/01_Executive_Summary.tex}}
+
 % ----------------
 % --- Contents ---
 % ----------------
 \newpage
+\thispagestyle{fancy}
 {\titleformat*{\section}{\bfseries\Large\centering}
 \tableofcontents}
 \clearpage
@@ -188,47 +199,41 @@
 % --- Related Works ---
 % ---------------------
 \newpage
-\input{Latex/THESIS/03_Related_Work.tex}
+\input{Latex/THESIS/03_Literature_Review}
 
 % --------------------
 % - Proposed Methods -
 % --------------------
 \newpage
-\input{Latex/THESIS/04_Proposed_Method.tex}
+\input{Latex/THESIS/04_Methods}
 
-
-% -------------------
-% --- Experiments ---
-% -------------------
-\newpage
-\input{Latex/THESIS/05_Experiments.tex}
 
 
 % ----------------
 % --- Analysis ---
 % ----------------
 \newpage
-\input{Latex/THESIS/06_Analysis.tex}
+\input{Latex/THESIS/05_Analysis.tex}
 
 % ----------------
 % -- Discussion --
 % ----------------
 \newpage
-\input{Latex/THESIS/07_Discussion.tex}
+\input{Latex/THESIS/06_Discussion.tex}
 
 
 % ------------------
 % --- Conclusion ---
 % ------------------
 \newpage
-\input{Latex/THESIS/08_Conclusion.tex}
+\input{Latex/THESIS/07_Conclusion.tex}
 
 % ------------------------
 % --- Acknowledgement ---
 % ------------------------
 \newpage
 \thispagestyle{empty}
-\input{Latex/THESIS/09_Acknowledgements.tex}
+\input{Latex/THESIS/08_Acknowledgements.tex}
 
 
 
@@ -258,11 +263,14 @@
 \newpage
 \appendix
 \renewcommand{\leftmark}{APPENDIX A}
-\input{Latex/THESIS/10_AppendixA.tex}
+\input{Latex/THESIS/09_AppendixA.tex}
 \newpage
 \FloatBarrier
 \renewcommand{\leftmark}{APPENDIX B}
-\input{Latex/THESIS/11_AppendixB.tex}
+\input{Latex/THESIS/10_AppendixB.tex}
+
+\renewcommand{\leftmark}{APPENDIX C}
+\input{Latex/THESIS/11_AppendixC.tex}
 
 %\pagenumbering{alph}
 

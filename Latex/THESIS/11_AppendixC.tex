@@ -1,0 +1,54 @@
+\section*{Appendix C}\label{Appendix C}
+
+The general work flow of the Scrapy architecture is as follows (see Figure~\ref{fig:Scrapy Architecture}; adapted from ”Architecture overview” in \cite{Scrapy2018}):
+\begin{compactenum}
+        \item The Engine gets the initial Requests to crawl from the Spider.
+        \item The Engine schedules the Requests in the Scheduler and asks for the next Requests to crawl.
+        \item The Scheduler returns the next Requests to the Engine.
+        \item The Engine sends the Requests to the Downloader, passing through the Downloader Middlewares.
+        \item Once the page finishes downloading the Downloader generates a Response (with that page) and sends it to the Engine, passing through the Downloader Middlewares.
+        \item The Engine receives the Response from the Downloader and sends it to the Spider for processing, passing through the Spider Middleware.
+        \item The Spider processes the Response and returns scraped items and new Requests (to follow) to the Engine, passing through the Spider Middleware.
+        \item The Engine sends processed items to Item Pipelines, then sends processed Requests to the Scheduler and asks for possible next Requests to crawl.
+        \item The process repeats (from step 1) until there are no more requests from the Scheduler.
+\end{compactenum}\par 
+%
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[height=0.4\textwidth]{{"Latex/THESIS/Figures/scrapy_architecture"}.png}
+	\caption[Scrapy Architecture]{Scrapy Architecture (Source: \url{https://docs.scrapy.org}, reprinted with permission)}
+	\label{fig:Scrapy Architecture}
+\end{figure}
+
+
+
+\begingroup
+\renewcommand
+\arraystretch{1.2}
+\begin{table}[!htbp]
+\centering
+\caption{Number of sites per state / country before and after preprocessing}\label{tab:Number of Sites}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{5cm} >{\centering\arraybackslash}p{4cm} >{\centering\arraybackslash}p{4cm}}
+\multicolumn{1}{l}{\textbf{}} & \textbf{Number of Crawler Downloaded Sites} & \textbf{Number of Sites after Preprocessing / Cleaning} \\ \hline
+\textbf{United Kingdom}  & 6185   & 396 \\
+\textbf{Germany (total)} & 165384 & 69  \\
+Germany Federal                  & 200             & 24           \\
+Baden-Wuerttemberg       & 130             & 10           \\
+Bavaria                  & 230             & 5            \\
+Berlin                   & 70543           & 7            \\
+Brandenburg              & 169             & 1            \\
+Bremen                   & 1329            & 5            \\
+Hamburg                  & 37              & 2            \\
+Hesse                    & 64              & 3            \\
+Lower Saxony             & 0               & 0            \\
+Mecklenburg-Vorpommern   & 4               & 1            \\
+North Rhine-Westphalia   & 113             & 0            \\
+Rhineland-Palatinate     & 167             & 5            \\
+Saarland                 & 59290           & 0            \\
+Saxony                   & 33044           & 0            \\
+Saxony-Anhalt            & 21              & 3            \\
+Schleswig-Holstein       & 31              & 1            \\
+Thuringia                & 12              & 2           
+\end{tabular}%
+\end{table}
+\endgroup

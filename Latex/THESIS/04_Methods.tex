@@ -1,0 +1,128 @@
+%You should present initial experimental results and establish a validation strategy to be performed at the end of experimentation. At the very minimum, you should show that you have setup your data, baseline model code and evaluation metric, and run experiments to obtain some results.
+%This stage should help you make progress on your thesis, practice your technical writing skills, and receive feedback on both.
+
+%- Proposed method: details your approaches to the problem (e.g. architecture of the model and any other key methods or algorithms). You should be specific and detailed in describing your main approaches, you may want to include equations and figures. You should also describe your baseline(s). You should clearly state whether your approaches are original or provide necessary references.
+
+%- Experiments: describe the dataset(s) used (provide references); discuss the evaluation metric(s) you used and any other details needed to understand your evaluation strategy; discuss how you ran the experiments, providing necessary technical details; and comment on your qualitative results.
+
+%- Future work: describe what you plan to do for the rest of the project and why.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Methods}
+\subsection{Study Design}
+In recent years, online text mining has become an increasingly important field in social science research (\cites[37]{Ignatow2018}{Shumate2016}). The application of the technology spans from social media knowledge extraction (\cite{A.Salloumetal.2017}), to analysing leadership behavior in e-learning contexts \parencite{Xie2018} or conducting systematic literature reviews \parencite{Mergel2018}. 
+
+Building on Michael Thelwall's idea of "Webometrics" \parencite{Thelwall2009}, this study employs an exploratory, primarily quantitative research design based on the analysis of self-crawled web content (see also \cite{Olston2010, Jaeger1998, Ignatow2018}). To answer the research question on the evolution and spread of agile governance methods and principles in German and British public administrations, the websites of German and British government ministries on the federal and state level were crawled and analysed with respect to the appearance of the term "agil*"\footnote{The star is used to as a placeholder for all potential endings of the word, e.g. agile, agility, agiles, Agilität etc.} (following the keyword search strategy of \cite{Mergel2018}). Thereby gathered insights, in particular the number of agile related sites published as well as the depth in which the topic is being discussed on these sites, are meant to serve as a proxy measure for the evolution and spread of agile governance methods in the respective institutions (\cite{Branco2006, Ghosh2013}). The following three sub-sections describe the methods applied for the pipeline of data collection, preprocessing, and analysis – all of which were programmed and deployed in the programming language Python (\cite{VanRossum1995}). The final prototyping subsection, briefly outlines all the testing and prototyping work that went into developing this pipeline.
+
+\subsection{Data Collection}
+The purpose of the data collection process was to efficiently gather as many potentially relevant websites as possible. The process followed the steps identified for routine web crawls by Schäfer and Bildhauer (\cite*{Schafer2012}). As the first step of data collection, a list of all official websites of federal and state ministries in the UK and Germany was gathered manually by consulting the respective web presence listings from official government websites (see Table~\ref{tab:List of Ministry Websites} in \href{Appendix B}{Appendix B}). These websites then were crawled with the help of the open source web crawling platform \href{https://scrapy.org }{Scrapy} (\cite{Kouzis-Loukas2016}), specifying the main URLs from which the state / federal ministries can be reached (e.g. \url{https://www.gov.uk} or \url{https://www.bayern.de} etc.) as the "seed URL" \parencite[p. 115]{Barbaresi2015}. These seed URLs serve as the starting point for the crawler: All further pages linked on this page will be crawled subsequently and so on and so forth until the previously specified depth limit is reached or the links leave the previously specified domain range. In order to exclude non-governmental web sources, the crawl was limited to stay within the range of the respective domain of the seed URL as well as all its sub domains.\footnote{E.g. \url{https://www.gov.uk} and \url{https://gds.blog.gov.uk/} etc. or \url{https://www.bayern.de} and \url{https://km.bayern.de} etc.} For efficiency purposes and building on the assumption that institutions would not hide relevant information on deep pages of their websites, links with greater depth than ten pages were ignored (\cite{Scrapy2018, Wang2019}). Furthermore, the crawler was set to ignore the robots.txt file, since for many sites effective web crawling would not have been possible otherwise (\cite{Sun2007}; see also \cite[p. 125]{Barbaresi2015}). The general architecture of Scrapy is outlined in \href{Appendix C}{Appendix C}. In order to search for the respective keyword on a crawled page as well as retrieve and store the relevant web content, the Spider was setup as follows:
+%
+\begin{compactenum}
+    \setlength
+    \itemsep{0em}
+        \item The crawled site was downloaded as HTML file and parsed into a "soup" object with the help of the \textit{Beautiful Soup} package (\cite{Richardson2007}).
+        \item The text of the HTML file was extracted.
+        \item Based on the \underline{CONDITION if the search term agil*} (in regex: '\textbackslash bagil.?') \underline{was present or not} the following steps are performed:
+        \begin{compactenum}
+            \item IF the search term \underline{was present}:
+            \begin{compactenum}
+                \item A random ID for the page was created  based on its URL and stored as an item for later processing in the pipeline together with the URL and domain name.
+                \item Four different (potential) publishing date instances, as well as the document's main heading were extracted with the help of XPath expressions and stored as items for later processing in the pipeline (\cite{W3schools.com2020}).
+                \item The HTML file was stored in a newly created directory under the newly created ID.
+                \item The path name was reported as "saved file" in the log file. 
+            \end{compactenum}
+            \item IF the search term \underline{was NOT present}:
+            \begin{compactenum}
+                \item The page was being skipped (reported as "skipping" in the log file).
+            \end{compactenum}
+        \end{compactenum}
+        \item The process repeated from step 1. 
+\end{compactenum}
+To not get stuck with trying to decipher non-HTML files, all other common file extensions (e.g. "flv", "css", "pdf") were denied for extraction. After the HTML files were parsed and analysed in the Spider, the items are passed to the items pipeline (see Scrapy architecture in Figure~\ref{fig:Scrapy Architecture} in \href{Appendix C}{Appendix C}) which writes them into a CSV file and stores the file for further processing.
+
+The final crawls were run on a specifically set up instance on the \href{https://cloud.google.com/}{Google Cloud Platform} from servers in Belgium, and closely monitored throughout the whole process via an https connected \href{https://jupyterlab.readthedocs.io/en/stable/}{JupyterLab}. File syncing with the local machine was implemented via \href{https://linux.die.net/man/1/rsync}{rsync}. All in all the crawler downloaded 171569 pages.\footnote{For the numbers per state / country see Table~\ref{tab:Number of Sites} in \href{Appendix C}{Appendix C}.}
+
+
+\subsection{Data Preprocessing}
+The purpose of the data  preprocessing was to strip the text from unnecessary web-script elements, extract further date timestamps while selecting the earliest one, and finally, delete duplicates and false positives from the data set, and save everything in machine readable CSV- and text-file formats. These steps are in line with the recommendations of Lüdeling et al. (\cite*[p. 19]{Ludeling2015}) for the preprocessing of downloaded web pages. In order to achieve maximally reliable results, a mix of automated and manual preprocessing tasks was employed. The automated methods were adapted for their language / country specific application. The following two sections describe the methods in detail.\par 
+\paragraph{Automated Preprocessing Tasks:} 
+\begin{compactitem}
+\item Deleting cases with corrupted HTML files. In order to do so, the encoding format was detected using the \textit{chardet} package \parencite{Pilgrim2015}. In case parsing the file with the respective encoding still yielded a decoding error, the file was deleted from the dataset.\footnote{In total, only one case had to be deleted due to a corrupted HTML file.}
+\item Removing all HTML code and other "boilerplate" elements such as headers or links so that only the text content would be left for further text related analyses (\cite*[p. 19]{Ludeling2015}). This step was performed with the help of the \textit{Beautiful Soup} package (\cite{Richardson2007}), and the so cleaned text was stored as a variable as well as in separate text-files.
+\item Searching for more specific agil* terms in the respective cleaned text with the help of more restrictive regex expressions and saving the results as a variable.\footnote{The regex expression to catch all English matches was specified to be '\textbackslash bagil\textbackslash b\textbar \textbackslash bagility\textbackslash b', ignoring case. The German regex expression was specified to '\textbackslash bagility\textbackslash b\textbar \textbackslash bagil\textbackslash w\{0,2\}\textbackslash b\textbar \textbackslash bagilität\textbackslash b', ignoring case respectively. Furthermore, another search for the explicit mentioning of the term "agile [...] method*" was conducted.} 
+\item Extracting the preceding and subsequent context (five words each) of the first appearance of the search term and saving them as variables in order to facilitate the later search for false positives. 
+\item Retrieving further instances for (potential) release date entries from the web pages so that all relevant cases would be equipped with at least one date entry. To achieve this, the parser package \textit{lxml} (\cite{Faassen2006}) was used besides \textit{Beautiful Soup} in order to be able to read XPath (\cite{Clark1999}). In addition to the custom coded functions for date extraction on this particular set of websites, the \textit{HTMLdate} package (\cite{Barbaresi2020}) was used in order to extract further standard date instances (e.g. dates in URLs etc.). To correctly parse the dates into Python datetime objects, the \textit{dateutil} package (\cite{Niemeyer2003}) was used.
+\item Selecting the earliest retrieved date instance as a new final publishing date variable. To assert, that the earliest date instance would match the actual publishing date for the majority of cases, random samples were drawn from all relevant sites to check for the validity of this assumption. 
+\item Searching for the appearance of digitalisation / digital transformation related keywords in the texts and storing the results into a variable.\footnote{The regex expression were specified to '\textbackslash bdigital\textbackslash b\textbar \textbackslash bditialization\textbackslash b\textbar \textbackslash bdigitalisation\textbackslash b\textbar \textbackslash bdigital transformation\textbackslash b' for English and '\textbackslash bdigital\textbackslash w\{0,2\} \textbackslash b\textbar \textbackslash bdigitalisierung\textbackslash b\textbar \textbackslash bdigitale[n]? transformation\textbackslash b' for German, both ignoring case.}
+\item Deleting false positives, i.e. cases that have been downloaded by the crawler but in fact turned out to have nothing to do with agile methods. To do so the following sub-tasks were performed:
+\begin{compactitem}
+\item Erasing all cases, where the more specific and restrictive regex match for for agil* terms (see above) did not yield any results. 
+\item Searching for co-search terms (e.g.'scrum', 'sprint', 'design thinking'; see Table~\ref{tab:Co search terms} in \href{Appendix A}{Appendix A} for the complete list) in the cleaned texts of the sites and deleting cases where no co-search term was found.\footnote{In order to ensure that all inflected forms of a co-search term would be matched, the search terms as well as the cleaned text was lemmatized beforehand using the \textit{spaCy} package This is particularly important for German language to ensure that 'agiles Team', 'agilen Teams', 'agiler Teams' etc. would all be matched. Furthermore, all agile mentioning co-search terms were specified in three different versions: One without quotes, one with single quotes and one with double quotes, so that 'agile' methods or "agile" methods would also be matched.}  
+\end{compactitem}
+\item Storing the preprocessed and datasets into CSV-files and merging all files into one final master data frame to run the analyses. 
+\end{compactitem}
+
+
+%co-searchterms with and without singel and double quotes
+
+
+
+
+
+
+\paragraph{Manual Preprocessing:}
+
+
+\paragraph{Second Algorithm:} The task of the second algorithm was to get rid of all the duplicates and false positives in the data set. For both of these tasks the \textit{pandas} Python package (\cite{McKinney2010}) was used. To erase the false positives two strategies were used. The first strategy was to erase all cases, where the more restrictive regex match on the further cleaned text (see first algorithm above) did not yield any results. The second strategy was to manually look through the context of the remaining matches to identify and remove all cases where the content was about a subject matter not of interest for this study – for example, "agile" military in the UK context or "agile Senioren" (Eng: agile seniors) in the case of German websites. Finally, the duplicate cases where identified based on the heading as well as the context of the first match and thusly erased, so that the version which dates back the longest remained in the data set.\par 
+%
+% mention which machine i used for preprocessing
+
+
+after preprocessing cleaning 465 pages
+
+
+\subsection{Data Analysis}
+In the data analysis part, I want to show the differences in relevant websites published per year across countries and federal states. One way to do so, could be to use a number of bar charts like Figure~\ref{fig:Counts UK} and stack them above and next to each other. Furthermore, once all data has been gathered and preprocessed, I will try to create an \textit{"Agile Methods Intensity Index"}. Potentially, this could be done by not only counting the websites published per year but also going into details, as to whether these websites only mention agile / agility once or whether they provide a thorough description of the method's application. To analyse and visualize the data I plan to use the packages \textit{pandas} (\cite{McKinney2010}, \textit{matplotlib} (\cite{Hunter2007}), and \textit{plotly} (\cite{ PlotlyTechnologiesInc.2015}). Furthermore, I plan to dive into \textit{SpaCy} to see in which sense it might help me with constructing the index.
+%
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[height=0.4\textwidth]{{"Latex/THESIS/Figures/plot_counts_gov.uk"}.png}
+	\caption[Counts of published websites for gov.uk]{Counts of published websites for gov.uk}
+	\label{fig:Counts UK}
+\end{figure}
+%
+
+
+% agile suppliers excluded since it's about the inner workings of the ministries
+\subsection{Prototyping}
+
+The design of the preprocessing pipeline was an iterative process, where based on the gathered results the code was amended until a reliability of results was satisfactory.
+
+Different date formats for different sites 
+% initial crawls on local machine (3 weeks) for tests 
+% multiple crawls had to be rerun, because the crawler yielded errors) 
+% initial negative cleaning (without dictionary) 
+% visualisations
+
+Before the above described crawler setup was run on the Google Cloud Plattform, multiple test runs to iterate and improve the code and the process have been conducted on the author's own machine, a MacBook Pro 2018 with 2.9 GHz Intel Core i9 Processor and 32 GB of RAM memory. Also, the steps for data preprocessing and data analysis were piloted on the data set of the UK.
+\vspace{3pt}
+\begin{center}
+    \textbf{Is that enough for the Experiments part? Or should I just leave that section out and put the information about pilots and tests at the end of the Data Analysis section?}
+\end{center}
+
+Talk about 
+- how many pages the algorithm returned etc. (bring up stats from the log files)
+- how many got cleaned away by applying the dictionary 
+- % descriptive statistics
+    % how many pages retrieved from which country / level (how many errors / etc. pp.)
+    % how many were false positives
+    % etc. 
+    
+% Check Experiment Section in NLP Paper and maybe take some parts from proposed methods (in my thesis) to Experiments
+
+% checking the parsing of the earliest date
