@@ -38,8 +38,12 @@ q
 
 
 SYNCING:
-cd "/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Analysis/1_Data_Collection/"
+cd "/Users/mxm/Google Drive/Masterstudium/Inhalte/Master Thesis/GitHubRepo/agile-in-government/Code/1_Data_Collection/"
 rsync -a mxm@35.241.150.189:/home/jupyter/agile-in-government/Analysis/1_Data_Collection/DATA/ DATA_GoogleCloud/
+
+34.78.152.236
+
+rsync -a mxm@34.78.152.236:/home/jupyter/agile-in-government/Analysis/1_Data_Collection/DATA/ DATA_GoogleCloud/
 
 
 TODO: 
