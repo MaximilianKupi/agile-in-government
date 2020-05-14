@@ -81,9 +81,9 @@ The purpose of the data  preprocessing was to strip the text from unnecessary we
 \item Re-specifying wrongly specified publishing dates. To do so, all cases where the different date instances diverged substantially (i.e. dates from different years) were analysed by inspecting the respective web content online. The so identified correct publishing date was then saved as the final publishing date variable for the respective case in the dataset. 
 \end{compactitem}
 
-\vspace{\baselineskip}
+\noindent
 
-After deleting the false positive and duplicate cases, a total of 465 pages was left in the dataset.\footnote{For the numbers per state / country see Table~\ref{tab:Number of Sites} in \href{Appendix C}{Appendix C}.}
+After preprocessing, a total of 465 pages was left in the dataset.\footnote{For the numbers per state / country see Table~\ref{tab:Number of Sites} in \href{Appendix C}{Appendix C}.}
 
 
 \subsection{Data Analysis \& Visualisation}
@@ -98,23 +98,17 @@ The purpose of the data analysis and visualisation was to uncover all relevant p
 \item Calculating the frequencies of co-search terms for all publications of German as well as British ministries, and visualising these as word clouds, where a bigger word size depicts a higher frequency (see Figure~\ref{fig:wordclouds} in the \href{Analysis}{Analysis Section}). For the word cloud visualisation the \textit{wordcloud} \parencite{Mueller2020} package was used in addition to \textit{matplotlib} (\cite{Hunter2007}).  
 \item Selecting the most diverse color palettes possible for plots with a large number of qualitative distinctions so that the reader could still differentiate the colours (see for example Figure~\ref{fig:British organisations over time} in the \href{Analysis}{Analysis Section}). This was done using the \textit{RColorBrewer} package \parencite{Neuwirth2020} in the programming language R since no comparable python package was available. 
 \end{compactitem}
-
-\vspace{\baselineskip}
-
-All preprocessing, analysis and visualisation tasks were run on a MacBook Pro 2018 with 2.9 GHz Intel Core i9 Processor and 32 GB of RAM memory. 
+\noindent
+All preprocessing, analysis, and visualisation tasks were run on a MacBook Pro 2018 with 2.9 GHz Intel Core i9 Processor and 32 GB of RAM memory. 
 
 \subsection{Prototyping \& Testing}
 The design of the data pipeline and its methods was an iterative process involving plenty of prototyping and testing work. The following items provide a brief overview:
 \begin{compactitem}
 \item Selecting and setting up the most efficient and effective crawler package in order to be able to crawl the huge amount of web pages. At first, test crawls were run in R with the RCrawler package \parencite{Khalil2017}. However, it turned out that this package was way too slow and inflexible for the task at hand. For this reason, the final crawler was set up using the scrapy package \cite{Scrapy2018} in python. 
 \item Running various crawler test runs on the author's local machine to debug and improve the code before executing the final crawls on \href{https://cloud.google.com/}{Google Cloud Platform}.
-\item Designing the most efficient way to get rid of false positives in the data. At first, a negative (deselecting non-relevant cases), purely manual approach was used. However, due to the amount and diversity of text data this turned out to be too time intensive and error prone. Hence, the positive (selecting relevant cases), dictionary-based selection approach was developed.
+\item Designing the most efficient way to get rid of false positives in the data. At first, a negative (deselecting non-relevant cases), purely manual approach was used. However, due to the amount and diversity of text data this turned out to be too time intensive and error prone. Hence, the positive (selecting relevant cases), dictionary-based approach was developed.
+\item Amending the code to fetch instances of (potential) publishing dates and finally selecting the date that most likely would constitute the 'real' publishing date. As the website buildup differed from institution to institution and from country to country, the new parsing modes would have to be added as soon as the old ones did not yield any results for newly crawled pages.\footnote{This is also the reason, why some initial dates were parsed during the crawl while others were parsed only at the preprocessing step.}
+\item Rerunning crawls and/or merging crawls from various runs for domains where the crawler yielded errors. In cases where the crawl did not run properly – e.g. because it got stuck on certain page sections with thousands of irrelevant page entries – the crawler had to be restarted and/or the crawling results had to be merged with the results from previous runs. 
 \end{compactitem}
 
 
-% Different date formats for different sites % checking the parsing of the earliest date --> coming up with the best method to select the 'real' publishing date
-
-
-% multiple crawls had to be rerun, because the crawler yielded errors) 
-
-% visualisations various different colours
