@@ -27,10 +27,10 @@ Agile development approaches, in contrast, involve creating, testing, and improv
 	\renewcommand{\arraystretch}{1.4}
 	\begin{tabular}{ p{1.5cm} p{9.5cm} }
 		\hline
-		Value 1 & Individuals and interactions over processes and tools\\
-		Value 2 & Working software over comprehensive documentation\\
-		Value 3 & Customer collaboration over contract negotiation\\
-		Value 4 & Responding to change over following a plan\\
+		\textit{Value 1} & Individuals and interactions over processes and tools\\
+		\textit{Value 2} & Working software over comprehensive documentation\\
+		\textit{Value 3} & Customer collaboration over contract negotiation\\
+		\textit{Value 4} & Responding to change over following a plan\\
 		\hline
 		\multicolumn{2}{r}{Source: \cite{AgileManifesto2001}.}	
 	\end{tabular}
@@ -46,44 +46,79 @@ By and large, all agile approaches adhere to the tenets of the Agile Manifesto (
 	\label{fig:Agile development process}
 \end{wrapfigure}
 
-To achieve this high level of responsiveness to change, the agile development process is made up of continuous iterations, so called "sprint cycles" (see Figure~\ref{fig:Agile development process}). At the beginning of an agile project the team conducts qualitative field research – potentially using Design Thinking methods – to gather the needs of the users and document them in so called "user stories" in the language of the users to avoid misconception and translation errors (\cite{Wirdemann2017, Mergel2016}). In each of the sprint cycles the project team then develops increments of working software that solve these needs of the user and are the pieces of the puzzle that ultimately make up the final service or product \parencite{Schwaber2020}. Each of these sprints usually takes between one to four weeks and, in principle, follows the phases of the traditional waterfall approach, however, with a strong focus on iteratively testing the increment (\cite{Schwaber2020, Hughes2013}). Small prototypes are used to rapidly (dis-)prove ideas before many resources are invested in their further development, following the motto of failing fast, early and often (\cite{Mergel2016, Boehmer2017}). The initial project plan serves as a rough guidance. Yet, the early evaluations reveal which requirements might not have been completely fulfilled and need to be added as work packages to the next sprint cycles, leading to a revision of the plan after each iteration (\cite{Mergel2016}). In consequence, the short sprint cycles paired with the continuous testing of the product or service are supposed to reduce the monetary risk involved in software projects \parencite{Schwaber2020}.
+To achieve this high level of responsiveness to change, the agile development process is made up of continuous iterations, so called "sprint cycles" (see Figure~\ref{fig:Agile development process}). At the beginning of an agile project the team conducts qualitative field research – potentially using Design Thinking methods – to gather the needs of the users and document them in so called "user stories" in the language of the users in order to avoid misconception and translation errors (\cite{Wirdemann2017, Mergel2016}). In each of the sprint cycles the project team then develops increments of working software that solve these needs of the user and are the pieces of the puzzle that ultimately make up the final service or product \parencite{Schwaber2020}. Each of these sprints usually takes between one to four weeks and, in principle, follows the phases of the traditional waterfall approach, however, with a strong focus on iteratively testing the increment (\cite{Schwaber2020, Hughes2013}). Small prototypes are used to rapidly (dis-)prove ideas before many resources are invested in their further development, following the motto of failing fast, early and often (\cite{Mergel2016, Boehmer2017}). The initial project plan serves as a rough guidance. Yet, the early evaluations reveal which requirements might not have been completely fulfilled and need to be added as work packages to the next sprint cycles, leading to a revision of the plan after each iteration (\cite{Mergel2016}). In consequence, the short sprint cycles paired with the continuous testing of the product or service are supposed to reduce the monetary risk involved in software projects \parencite{Schwaber2020}.
 
 In a typical agile project, the development team is self-organizing in an environment that enhances creativity and spontaneity. According to Takeuchi, one of the pioneering scholars of agile methods, and Nonaka  (\cite*{TakeuchiI1986}) three conditions have to be met in order to foster self-organizing teams similar to the ones in start-ups: First, \textit{autonomy} as to how exactly the team plans to meet the user needs and requirements with the service or product. Second, \textit{self-transcendence} by establishing their own goals and amending them continuously based on user feedback as the service or product takes shape. Third, \textit{cross-fertilization} achieved through an interdisciplinary, cross-agency, and cross-functional team constellation that unites members with different skill-sets, thought process, and behaviour patterns. In addition to these three conditions the management has to exercise "subtle control" in order to enhance a team's creativity and spontaneity. This means establishing "enough checkpoints to prevent instability, ambiguity, and tension from turning into chaos", while at the same time avoiding the kind of rigid control that hinders the flow of the creative juices (\cite{TakeuchiI1986}). In most agile projects, the team's self-organization is institutionalized by regular project meetings, as for example the daily stand-ups or the sprint planning and review meetings at the beginning and end of each sprint cycle in the case of the Scrum methodology (\cite{Scrum.org2019}). The 12 principles of the Agile Manifesto (\cite*{AgileManifesto2001}) represented in Table~\ref{tab: Principles of agile software development} summarize the aforementioned particularities of agile methods in a comprehensive manner.\footnote{The words "customer" and "business people" in the wording of the principles hint at the methodology's origin in the private sector domain. For a public sector set-up "customer" might be translated to "recipient of the government service or product" and "business people" might be translated to "public manager".}
 \begingroup
 \begin{spacing}{.8}
 \renewcommand
 \arraystretch{1.4}
-\begin{longtable}[ht!]{p{0.14\textwidth} p{0.79\textwidth}}
+\begin{longtable}[ht!]{p{0.14\textwidth} p{0.80\textwidth}}
 \caption{Principles of agile software development}\label{tab: Principles of agile software development}
 \renewcommand{\arraystretch}{1.4}\\
 \hline
-Principle 1	& Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.\\
-Principle 2	& Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.\\
-Principle 3 &	Deliver working software frequently, from a
+\textit{Principle 1}	& Our highest priority is to satisfy the customer through early and continuous delivery of valuable software.\\
+\textit{Principle 2}	& Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage.\\
+\textit{Principle 3} &	Deliver working software frequently, from a
 couple of weeks to a couple of months, with a preference to the shorter timescale.\\
-Principle 4	& Business people and developers must work
+\textit{Principle 4}	& Business people and developers must work
 together daily throughout the project.\\
-Principle 5	& Build projects around motivated individuals.
+\textit{Principle 5}	& Build projects around motivated individuals.
 Give them the environment and support they need, and trust them to get the job done.
 \\
-Principle 6	& The most efficient and effective method of
+\textit{Principle 6}	& The most efficient and effective method of
 conveying information to and within a development team is face-to-face conversation.
 \\
-Principle 7	& Working software is the primary measure of progress.\\
-Principle 8	& Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
+\textit{Principle 7}	& Working software is the primary measure of progress.\\
+\textit{Principle 8}	& Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
 \\
-Principle 9	& Continuous attention to technical excellence
+\textit{Principle 9}	& Continuous attention to technical excellence
 and good design enhances agility.\\
-Principle 10 & Simplicity – the art of maximizing the amount of work not done – is essential.\\
-Principle 11 & The best architectures, requirements, and designs emerge from self-organizing teams.
+\textit{Principle 10 }& Simplicity – the art of maximizing the amount of work not done – is essential.\\
+\textit{Principle 11} & The best architectures, requirements, and designs emerge from self-organizing teams.
 \\
-Principle 12 & At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behaviour accordingly.\\
+\textit{Principle 12} & At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behaviour accordingly.\\
 \hline
 \multicolumn{2}{r}{Source: \cite{AgileManifesto2001}.}	
 \end{longtable}
 \end{spacing}
 \endgroup
 
+\subsection{Benefits, Challenges, \& Conditions}
+It has to be recognized that – besides all the potential benefits the approach can bring~– going agile is definitely not a panacea under all circumstances \parencite{Rigby2016}. Furthermore, the approach can even pose certain challenges to an organisation, in particular when it comes to applying it in government institution whose values, structures, and processes might oftentimes be especially hard to combine with the agile spirit \parencite{Hajjdiab2011}.
 
-\subsection{Related Research}
-Due to its growing relevance for practitioners, the application of agile methods in the public sector has also increasingly become the focus of researchers around the world (\cite{CarvalhoFernandes2016, Mergel2018, Vacari2015}). Recent literature reviews suggest that most of the studies employ case studies, yet some also make use of surveys or interviews to derive their insights (\cite{Vacari2015, Mergel2018}). Mergel, Gong, and Bertot (\cite*{Mergel2018}) find that research focuses on four application areas of agility in government: (1) agile software development, (2) agile project management, (3) agile acquisition, and (4) agile evaluation. While agile software development (1) is the most researched area, studies that evaluate agile approaches (4) are particularly sparse; area two and three are decreasing in relevance respectively (\cite{Mergel2018}). Yet again, studies which focus on agile software development can be categorized into three main groups according to their respective focus: reasons and benefits, problems and challenges, and lessons learned obtained from adopting agile methods in the public sector (\cite{Vacari2015}). While all these studies uncover useful insights on the micro / organizational level, macro level studies that quantitatively analyse the evolution and spread of agile methods on an intra- and inter- country level for British and German government institutions are still lacking (\cite{Vacari2015, Mergel2018}). This paper aims to close this research gap.
+On the one hand, literature has identified various potential benefits that agile approaches can bring to government institutions. The most mentioned ones are as follows: First and foremost, scholars have found that agile methods lead to a better and more collaborative integration of IT teams with public sector management \parencite{Upender2005,berger2005uk, Berger2007,Dubinsky2005}.\footnote{As Sørensen and Torfing \parencite*{Sorensen2011} have presented in their well received article, collaboration in turn can lead to an enhancement of public sector (digital) innovativeness.} Second, agile methods are found to increase the satisfaction of government services' recipients and other important stakeholders \parencite{Fruhling2008,  Fulgham2011, iliev2009case}. Third, researchers have observed that an agile approach in government projects reduces the time required for value delivery \parencite{Upender2005, Surdu2006, McMahon2006, Moore2001}. Fourth and finally, agile approaches were found to improve team morale and increase public servants' job satisfaction \parencite{Hajjdiab2011, Vacari2015, Dubinsky2005}. 
+
+On the other hand, research shows that applying agile approaches in public sector institutions can pose a number of challenges: Most important in that respect is the often perceived cultural mismatch between the rigidity of bureaucratic line organisations and the flexibility of agile methods \parencite{Mergel, Fruhling2008, Altukhova2016, berger2005uk, Greve2019}. Second, since agile methods still constitute a novelty in public sector domains, the lack of education and experience in their application is another common challenge identified by scholars \parencite{Nuottila2016, McMahon2006, Fridman2016}. Third, the shortage of (senior) management support can also pose difficulties to agile projects in the public sector \parencite{Mergel,Berger2007,Dubinsky2005, Hajjdiab2011}. Fourth and finally, the necessary adaption of procurement and contracting arrangements as well as the compliance of the agile working mode with further standards and regulations can be a difficult task for public sector institutions that intend to go agile \parencite{Nuottila2016,Mergel, Fruhling2008, Fulgham2011}.
+
+Ultimately, it is important to acknowledge which are the conditions that are most likely favourable for applying agile methods, and under which circumstances the methodology is unlikely to yield benefits. In their Harvard Business Review article "Embracing Agile", Rigby, Sutherland, and Takeuchi \parencite*{Rigby2016} have stated various factors that are important in that respect. Adapted for public sector organisations, these factors are summarized in Table~\ref{tab:Favourable and unvarourable}. 
+
+\begingroup
+\begin{spacing}{.9}
+\renewcommand
+\arraystretch{1.5}
+\begin{longtable}[ht!]{p{0.16\textwidth} p{0.38\textwidth}p{0.38\textwidth}}
+	\caption{Conditions for applying agile methods in public institutions}\label{tab:Favourable and unvarourable}\\
+	\hline
+    \textbf{Conditions} & \textbf{Favourable} & \textbf{Unfavourable} \\
+    \hline
+    \textit{Environment} & User preferences and solution options change frequently. & Conditions are stable and predictable. \\
+    \textit{User \newline Involvement} & Close collaboration and rapid feedback are feasible. \newline Users know better what they want as the process progresses. & Requirements are clear at the outset and will remain stable. \newline Users are unavailable for constant collaboration. \\
+    \textit{Innovation Type} & Problems are complex, solutions are unknown, and the scope is not clearly defined. Product specifications may change. Creative breakthroughs and delivery time are important. \newline Cross-functional collaboration is vital. & Similar work has been done before, and innovators believe the solutions are clear. Detailed specifications and work plans can be forecast with confidence and should be adhered to. Problems can be solved sequentially in functional silos.\\
+    \textit{Modularity \newline of Work} & Incremental developments have value, and users can utilise them. Work can be broken into parts and conducted in rapid, iterative cycles. \newline Late changes are manageable. & Users cannot start testing parts of the product until everything is complete. \newline Late changes are expensive or impossible. \\
+    \textit{Impact \newline of Interim \newline Mistakes} & They provide valuable learning. & They may be catastrophic. \\
+    \hline
+    \multicolumn{3}{r}{Source: Adapted from \cite{Rigby2016}}
+\end{longtable}
+\end{spacing}
+\endgroup
+\vspace{-0.1cm}
+\subsection{Research Gap}
+Due to its growing relevance for practitioners, the application of agile methods in the public sector has increasingly become the focus of researchers around the world. However, recent literature reviews suggest that these studies are still limited in number and scope – most of the scholars employ case studies, yet, few also make use of surveys or interviews to derive their insights (\cite{CarvalhoFernandes2016, Vacari2015, Mergel2018, Mergel}). While all these studies uncover useful insights on the micro / organizational level, macro level studies that quantitatively analyse the evolution and spread of agile methods in government institutions are still lacking. This paper aims to help closing this research gap on the basis of an intra- and inter- country level comparison for the United Kingdom and Germany. 
+
+
+\vspace{12cm}
+
+\begin{center}
+\tiny{\textit{(This white space is to illustrate how big the research gap actually is.)}}
+\end{center}

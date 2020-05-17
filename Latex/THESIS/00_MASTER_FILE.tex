@@ -60,7 +60,7 @@
 \usepackage[nottoc,numbib]{tocbibind}
 
 % References and citation style
-\usepackage[backend=biber, style=apa, ibidtracker=strict ]{biblatex}
+\usepackage[backend=biber, style=apa, ibidtracker=strict]{biblatex}
 
 \addbibresource{/Latex/references.bib}
 
@@ -103,9 +103,21 @@
 \fancyhead[R]{Master's Thesis}
 \renewcommand{\headrulewidth}{0.4pt}
 }
-%\fancyhead[L]{Maximilian Kupi}
-%\fancyhead[C]{Agile in Government}
-%\fancyhead[R]{Master's Thesis}
+
+\fancypagestyle{acknowledgements}{%
+\fancyhead[L]{ACKNOWLEDGEMENTS}
+\fancyhead[C]{Agile in Government}
+\fancyhead[R]{Master's Thesis}
+\renewcommand{\headrulewidth}{0.4pt}
+}
+
+
+\fancypagestyle{Statement}{%
+\fancyhead[L]{SOA}
+\fancyhead[C]{Agile in Government}
+\fancyhead[R]{Master's Thesis}
+\renewcommand{\headrulewidth}{0.4pt}
+}
 
 
 %define second level for `itemizing'
@@ -155,6 +167,8 @@
 % ----------------
 % --- Contents ---
 % ----------------
+\begingroup
+\begin{spacing}{1.2}
 \newpage
 \thispagestyle{fancy}
 {\titleformat*{\section}{\bfseries\Large\centering}
@@ -173,7 +187,14 @@
 \newpage
 {\titleformat*{\section}{\bfseries\Large\centering}
 \listoftables}
-
+\end{spacing}
+\endgroup
+% ------------------------
+% --- Acknowledgement ---
+% ------------------------
+\newpage
+\thispagestyle{acknowledgements}
+\input{Latex/THESIS/08_Acknowledgements.tex}
 
 
 
@@ -228,12 +249,6 @@
 \newpage
 \input{Latex/THESIS/07_Conclusion.tex}
 
-% ------------------------
-% --- Acknowledgement ---
-% ------------------------
-\newpage
-\thispagestyle{empty}
-\input{Latex/THESIS/08_Acknowledgements.tex}
 
 
 
@@ -250,8 +265,11 @@
 \pagenumbering{roman}
 \setcounter{page}{4} 
 \titleformat*{\section}{\bfseries\Large\centering}
+\begingroup
+\begin{spacing}{1}
 \printbibliography[heading=bibintoc] 
-
+\end{spacing}
+\endgroup
 %----------------------------------------------------------------------
 %----------------------------------------------------------------------
 %----------------------------------------------------------------------
@@ -274,5 +292,8 @@
 
 %\pagenumbering{alph}
 
+\newpage
+\pagestyle{Statement}
+\input{Latex/THESIS/12_StatementofAuthorship}
 
 \end{document}
