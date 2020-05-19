@@ -1,6 +1,6 @@
 Organisation,Ministry Type
 Attorney General's Office,UK specific
-Cabinet Office,Cabinet Office / Federal Government
+Cabinet Office,Cabinet / Federal Government Office
 "Department for Business, Energy & Industrial Strategy",Economic Affairs
 "Department for Digital, Culture, Media and Sport","Digital, Culture, Media, and Sport (UK only)"
 Department for Education,Education \& Research
@@ -13,7 +13,7 @@ Department of Health and Social Care,Health \& Social Care
 Foreign and Commonwealth Office,Foreign Office
 HM Treasury,Finance
 Home Office,Home / Interior
-"Ministry of Housing, Communities and Local Government","Housing, Communities, and Local Government (UK)"
+"Ministry of Housing, Communities and Local Government","Housing, Communities \& Local Government (UK)"
 Ministry of Justice,Justice
 Northern Ireland Office,UK specific
 Ministry of Defence,Defence
@@ -21,7 +21,7 @@ Ministry of Education and Research,Education \& Research
 Ministry of Labour and Social Affairs,Work \& Social Affairs
 "Ministry for the Environment, Nature Conservation and Nuclear Safety","Environment, Food \& Agriculture"
 Ministry for Economic Affairs and Energy,Economic Affairs
-Federal Government,Cabinet Office / Federal Government
+Federal Government,Cabinet / Federal Government Office
 Foreign Office,Foreign Office
 Ministry of Finance,Finance
 Ministry of Justice and Consumer Protection,Justice
