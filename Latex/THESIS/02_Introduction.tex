@@ -1,50 +1,26 @@
 %2. Introduction: Explains the problem; why it’s difficult, interesting, or important; how and why current methods fail/succeed at the problem, and explains key ideas of your approach and results. Roughly the same material as the abstract but with more space for motivation, detail, and references to existing work, and aims to capture the reader’s interest.
 
-
-%Mergel Defining Digital Transformation: Digital transformation approaches outside the public sector are changing citizens' expectations of public administrations' need to de- liver high-value, real-time digital services. Triggered by supranational agreements, such as the “Tallinn Declaration on eGovernment” (European Commission, 2017), governments are changing their mode of operation in order to improve service delivery, be more efficient and effective in their designs, and achieve objectives such as increased transparency, interoperability, and citizen satisfaction.
-
-
-
-%Mergel Digital Transformation: %We believe that additional research is necessary to distinguish digital transformation approaches in practice as they relate to their digital agendas. This well help identify how digital transformation differs based on the size of the country, its history, and present context as well as how these dimensions might have an impact on their digital trans- formation efforts.
-%It might also be useful to break down the definitions by type of public sector services and its subsectors: We suggest that there are likely differences across sectors, such as health, traffic, safety, or social ser- vices. There might be sectors that are more prone to engage in the use of new technologies based on the types of public servants they hire. For example, national security might hire more engineers with a different type of education in technology than social services. We might see a more nuanced definition of digital transformation as a result of this distinction and the heterogeneous nature of the public sector itself.
 \setlength{\epigraphwidth}{0.5\textwidth}
 \epigraph{We will always be looking to improve, because the expectations of citizens and the demands on services will always be shifting.}{Kevin Cunnington, Director General, Government Digital Service, UK (\cite*{Cunnington2017})}
 
 \section{Introduction}
+\label{Introduction}
+The digital transformation is changing many aspects of contemporary life. From the way people communicate, to the way they find the right path or even the big love of their lives – nothing remains untouched by digital technology. Due to their ease of use, and in particular since the outbreak of the corona virus, digital interaction channels have seen an increase in relevance for the private and public sector alike \parencite{Koeze2020, WorldEconomicForum2020}.
 
-%why Britain and Germany?
+In order to digitally transform any organisation, a simple transfer of analog practices into the digital realm will not do: Much rather digital transformation requires organisational and relational changes in order to better satisfy the users' needs and fully reap the benefits that digital technologies can bring \parencite{Mergel2019a}. In that respect, an adoption of agile methods has increasingly become the mantra for many public sector institutions \parencite{Lundqvist2016, Vacari2015, Mergel}. 
 
-%UK has been on the forefront of adopting agile in government 
-%Cite Mergel 2016
-%Similar to the UK and soon the Italian government (Amazon.com, 2016; UK.gov, 2016), the U.S. federal government as explicitly adopted an agile government approach in 2012 (The White House, 2012b, 2011). 
+Agile approaches originate from the IT departments of private sector companies, and are characterised by the incremental and iterative development, testing, and improvement of technology products with a focus on the user \parencite{Mergel2016}. However, as more and more non-IT related teams came to value digital technologies as integral part of their work, agile methods such as Scrum or Kanban began to expand beyond these departments. In that respect various digital government units such as United Kingdom's, United States' or Canada's government digital service are regarded as the lead organisations that "paved the way" for other government departments to also introduce agile methods (\cite[2]{Mergel}, see also \cite{Clarke2019}). However, apart from these prominent examples, canonical public administration literature knows little about the extent to which these methods are actually prevalent in other government institutions \parencite{CarvalhoFernandes2016, Vacari2015, Mergel2018, Mergel}. To help close this research gap, this study will analyse the appearance of agile related keywords on British and German government websites over time in and answer the following research question:
 
-%Mergel
-%A quiet government transformation is already underway with practitioners who are investing heavily in working in agile environments and applying agile approaches from software development to other types of government problems. Traditionally, major changes in the way government works are either introduced through policy changes or public management reforms. Agencies are now changing their project management techniques and even procurement practices, incorporating new values and methods that are foreign to classical “bureaucratic” organizations. 
-%--> Government agencies are creating policies for agile government and introducing new practices and playbooks (e.g., U.S. GAO 2012, HUD 2018). For instance, digital service teams such as the United States Digital Service, the United Kingdom’s Government Digital Service, and the Canadian Digital Service have paved the way for working in an “agile way (Mergel (2020))
+\begin{addmargin}[2em]{2em}% 1em left, 2em right
+\textbf{RQ:}\textit{What is the evolution and spread of agile methods in British and German government institutions?\footnote{When talking about the United Kingdom or Britain, this paper refers to all the government institutions that have their web presences on \href{https://gov.uk}{gov.uk}, although, strictly speaking, \href{https://gov.scot}{gov.scot} (Scotland), \href{https://gov.wales}{gov.wales} (Wales), and  \href{https://gov.ie}{gov.ie} (Ireland) are also all part of the United Kingdom.}}\label{RQ1}
+\end{addmargin}\par 
 
-
-
-
+With their much cited digital transformation efforts, the United Kingdom will thereby serve as the baseline against which German government institutions will be assessed \parencite{Sivarajah2014, Clarke2019}. To provide the most legitimate basis for comparison only federal government ministries' and the cabinet / federal government offices' web sites will be analysed for the inter-country comparison. However, in order to uncover further insights, subordinate British institutions and German federal state ministries will also be included for the respective intra-country comparisons.
 
 
-
-%what is my research question
-
-%RQ1: What is the evolution and spread of agile governance methods and principles in the German and British public administration?
+The remainder of this paper is structured as follows: The \hyperref[Literature Review]{literature review} provides an introduction to public sector's \hyperref[Digital Transformation]{digital transformation} as well as to the respective British and German policy setting. Furthermore, the characteristics of \hyperref[Agile Methods]{agile methods} as well as the connected \hyperref[Benefits, Challenges, and Conditions]{implications for their application} are discussed, and the \hyperref[Research Gap]{research gap} is specified. The 
+\hyperref[Study Design]{study design} as well as the \hyperref[Data Collection]{data collection}, \hyperref[Data Preprocessing]{preprocessing}, and \hyperref[Data Analysis and Visualisation]{analysis} methods to answer the research question are described in \hyperref[Methods]{Section 3}. Additionally, the \hyperref[Methods]{section} outlines the \hyperref[Prototyping and Testing]{prototyping and testing} work that went into the development of this analysis pipeline. \hyperref[Analysis]{Section 4} presents the analysis results on a \hyperref[General Level]{general level} as well as for the \hyperref[Intra-Country Comparison]{intra-} and \hyperref[Inter-Country Comparison]{inter-country comparisons}. The \hyperref[Discussion]{discussion section} \hyperref[Summary of Findings]{summarizes the findings}, derives \hyperref[Policy Implications]{policy implications}, and points out alleys for \hyperref[Limitations and Future Work]{future research based on this studies limitations} and beyond. The paper ends with a short \hyperref[Conclusion]{conclusion}.
 
 
-%MENTION: That strictly speaking gov.scot (Scotland) and gov.wales (wales) gov.ie (ireland) are also all part of uk but due to efficiency reasons this paper focuses on what is to be found on gov.uk 
 
-
-% why only the top level institutions?
-% since they take the leading role in government and are supposedely the ones driving change?
-
-%This research paper thus aims to answer the following research question to help close this research gap: 
-%\begin{addmargin}[2em]{2em}% 1em left, 2em right
-%\textbf{RQ:}\textit{What is the evolution and spread of agile governance methods and principles in the British and German government institutions?}\label{RQ1}
-%\end{addmargin}\par 
-
-
-%Moreover, the canonical public administration literature has largely neglected agile and more fundamental changes it introduces to hierarchical and bureaucratic organizations. For instance, our search in Web of Science for the topic “agile” revealed that 26 research articles in “public administration”, most not related to the agile concept. Mergel2020
-
-%Doktor: To answer these questions we apply a theory of gradual institutional change. (Greve2019)
+%FOR PhD: To answer these questions we apply a theory of gradual institutional change. (Greve2019)
