@@ -45,7 +45,7 @@ The purpose of the data collection process was to efficiently gather as many pot
 \end{compactenum}
 To not get stuck trying to decipher non-HTML files, all other common file extensions (e.g. \texttt{.flv}, \texttt{.css}, \texttt{.pdf}) were denied for extraction. After the HTML files were parsed and analysed in the spider, the items were passed to the items pipeline (see Scrapy architecture in Figure~\ref{fig:Scrapy Architecture} in \hyperref[Appendix C]{Appendix C}) which wrote them into a CSV file and stored the file for further processing.
 
-The final crawls were run on a specifically set up instance on the \href{https://cloud.google.com/}{Google Cloud Platform} from servers in Belgium, and closely monitored throughout the whole process via an https connected \href{https://jupyterlab.readthedocs.io/en/stable/}{JupyterLab}. File syncing with the local machine was implemented via \href{https://linux.die.net/man/1/rsync}{rsync}. All in all the crawler downloaded 171,569 pages.\footnote{For the numbers per state / country see Table~\ref{tab:Number of Sites} in \hyperref[Appendix C]{Appendix C}.}
+The final crawls were run on a specifically set up instance on the \href{https://cloud.google.com/}{Google Cloud Platform} from servers in Belgium, and closely monitored throughout the whole process via an https connected \href{https://jupyterlab.readthedocs.io/en/stable/}{JupyterLab}. File syncing with the local machine was implemented via \href{https://linux.die.net/man/1/rsync}{rsync} \parencite{Tridgell2020}. All in all the crawler downloaded 171,569 pages.\footnote{For the numbers per state / country see Table~\ref{tab:Number of Sites} in \hyperref[Appendix C]{Appendix C}.}
 
 
 \subsection{Data Preprocessing}\label{Data Preprocessing}
